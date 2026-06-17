@@ -131,12 +131,12 @@ npm run report
 
 ### GitHub Pages
 
-On every push to `main`, the `publish` job in `.github/workflows/appium.yml` merges Allure results from CI, generates HTML, and deploys to GitHub Pages:
+On every push to `main`, the `publish` job merges Allure results when available, always builds the docs site (landing, guides, slides), and deploys to GitHub Pages:
 
 - Hub: `https://lflucasferreira.github.io/testflow-appium/`
-- Report: `https://lflucasferreira.github.io/testflow-appium/report/`
+- Report: `https://lflucasferreira.github.io/testflow-appium/report/` (placeholder if no Allure data)
 
-CI uploads `allure-results/` from each job; the `publish` job builds the combined Allure report on `main`.
+Android jobs upload `allure-results/`; the `publish` job combines them on `main`.
 
 #### One-time setup (required)
 
@@ -176,14 +176,22 @@ testflow-appium/
 
 ## CI
 
-GitHub Actions workflow (`.github/workflows/appium.yml`):
+GitHub Actions (`.github/workflows/appium.yml`) runs **parallel test jobs** on every push/PR, then a single Pages publish on `main`:
 
 | Job | What it runs |
 |---|---|
 | `api` | REST smoke against TestFlow Docker service |
-| `android` | Smoke on PR; full Android suite on push to `main` (emulator API 34) |
-| `publish` | Merges Allure results, builds site, deploys GitHub Pages (`main` only) |
+| `android-smoke` | Android smoke on emulator API 34 (parallel with `api`) |
+| `android-full` | Full Android suite — `workflow_dispatch` only |
+| `publish` | Merges Allure when available, always builds landing + guides + slides |
 | `deploy` | GitHub Pages deployment (`main` only) |
+
+```bash
+# Same commands as CI (local)
+npm run test:api
+npm run test:ci:android:smoke
+npm run test:ci:android
+```
 
 iOS jobs require macOS runners — run locally with `npm run test:ios`.
 

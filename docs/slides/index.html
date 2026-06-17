@@ -697,8 +697,8 @@ npm run report</code></pre>
               <p>Emulator API 34, KVM, <code>ci-android-smoke.sh</code></p>
             </div>
             <div class="feature-card">
-              <h4>pages.yml</h4>
-              <p>Suite completa + Allure → GitHub Pages</p>
+              <h4>publish / deploy</h4>
+              <p>Landing, guides, slides + Allure (or placeholder) na <code>main</code></p>
             </div>
             <div class="feature-card">
               <h4>Artefatos</h4>
@@ -715,7 +715,7 @@ npm run report</code></pre>
             <li class="fragment fade-up"><code>waitForTestId</code> — explicit wait antes de interagir</li>
             <li class="fragment fade-up">URLs por plataforma em <code>support/config.ts</code> — não hardcode localhost</li>
             <li class="fragment fade-up">Gestos via <code>performActions</code> — W3C Actions API</li>
-            <li class="fragment fade-up"><code>npm run test:api</code> no CI antes do emulador — fail fast</li>
+            <li class="fragment fade-up"><code>api</code> e <code>android-smoke</code> em paralelo no CI</li>
             <li class="fragment fade-up">Tags Mocha — filtrar <code>@smoke</code>, <code>@appium</code> no CI</li>
             <li class="fragment fade-up">IDs rastreáveis <code>[TC-xxxx]</code> em <code>testCases.ts</code></li>
             <li class="fragment fade-up">Um cenário por <code>it()</code> — falhas legíveis no Allure</li>

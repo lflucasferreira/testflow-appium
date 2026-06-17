@@ -1074,7 +1074,7 @@ npm run report              # generate + open (shortcut)</code></pre>
             </div>
             <div class="feature-card">
               <h4 class="card-heading"><img src="assets/logos/github.svg" alt="" width="24" height="24" class="logo-github-adaptive card-logo" aria-hidden="true" /> GitHub Pages</h4>
-              <p>Published on push to <code>main</code> via <code>pages.yml</code>.</p>
+              <p>Published on push to <code>main</code> via <code>publish</code> job in <code>appium.yml</code>.</p>
             </div>
             <div class="feature-card">
               <h4 class="card-heading"><img src="assets/logos/java.svg" alt="" width="24" height="24" class="logo-color card-logo" aria-hidden="true" /> Java 17+</h4>
@@ -1104,7 +1104,7 @@ npm run report              # shortcut: generate + open</code></pre>
             </div>
             <div class="feature-card">
               <h4 class="card-heading"><img src="assets/logos/github.svg" alt="" width="24" height="24" class="logo-github-adaptive card-logo" aria-hidden="true" /> GitHub Pages</h4>
-              <p><code>pages.yml</code> — full suite + Allure report.</p>
+              <p>Job <code>publish</code> — landing, guides, slides, and report (or placeholder).</p>
             </div>
             <div class="feature-card">
               <h4 class="card-heading"><img src="assets/logos/githubactions.svg" alt="" width="24" height="24" class="logo-color card-logo" aria-hidden="true" /> Artifacts</h4>
@@ -1116,10 +1116,10 @@ npm run report              # shortcut: generate + open</code></pre>
               <tr><th>Workflow</th><th>Job</th><th>What it runs</th></tr>
             </thead>
             <tbody>
-              <tr><td><code>appium.yml</code></td><td><code>api</code></td><td><code>npm run test:api</code> — REST smoke</td></tr>
+              <tr><td><code>appium.yml</code></td><td><code>api</code></td><td><code>npm run test:api</code> — REST smoke (parallel)</td></tr>
               <tr><td><code>appium.yml</code></td><td><code>android-smoke</code></td><td>Emulator API 34 + <code>ci-android-smoke.sh</code></td></tr>
-              <tr><td><code>pages.yml</code></td><td><code>report</code></td><td>Full Android suite + Allure HTML</td></tr>
-              <tr><td><code>pages.yml</code></td><td><code>deploy</code></td><td>Publish to GitHub Pages</td></tr>
+              <tr><td><code>appium.yml</code></td><td><code>android-full</code></td><td>Full suite — manual <code>workflow_dispatch</code></td></tr>
+              <tr><td><code>appium.yml</code></td><td><code>publish</code> / <code>deploy</code></td><td>Site + Allure (or placeholder) on <code>main</code></td></tr>
             </tbody>
           </table>
           <p>iOS jobs require macOS runners — run locally with <code>npm run test:ios</code>.</p>

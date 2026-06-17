@@ -1104,7 +1104,7 @@ npm run report              # atalho: generate + open</code></pre>
             </div>
             <div class="feature-card">
               <h4 class="card-heading"><img src="assets/logos/github.svg" alt="" width="24" height="24" class="logo-github-adaptive card-logo" aria-hidden="true" /> GitHub Pages</h4>
-              <p><code>pages.yml</code> — suite completa + Allure report.</p>
+              <p>Job <code>publish</code> — landing, guias, slides e report (ou placeholder).</p>
             </div>
             <div class="feature-card">
               <h4 class="card-heading"><img src="assets/logos/githubactions.svg" alt="" width="24" height="24" class="logo-color card-logo" aria-hidden="true" /> Artefatos</h4>
@@ -1116,10 +1116,10 @@ npm run report              # atalho: generate + open</code></pre>
               <tr><th>Workflow</th><th>Job</th><th>O que executa</th></tr>
             </thead>
             <tbody>
-              <tr><td><code>appium.yml</code></td><td><code>api</code></td><td><code>npm run test:api</code> — REST smoke</td></tr>
+              <tr><td><code>appium.yml</code></td><td><code>api</code></td><td><code>npm run test:api</code> — REST smoke (paralelo)</td></tr>
               <tr><td><code>appium.yml</code></td><td><code>android-smoke</code></td><td>Emulator API 34 + <code>ci-android-smoke.sh</code></td></tr>
-              <tr><td><code>pages.yml</code></td><td><code>report</code></td><td>Suite Android completa + Allure HTML</td></tr>
-              <tr><td><code>pages.yml</code></td><td><code>deploy</code></td><td>Publica em GitHub Pages</td></tr>
+              <tr><td><code>appium.yml</code></td><td><code>android-full</code></td><td>Suite completa — <code>workflow_dispatch</code> manual</td></tr>
+              <tr><td><code>appium.yml</code></td><td><code>publish</code> / <code>deploy</code></td><td>Site + Allure (ou placeholder) na <code>main</code></td></tr>
             </tbody>
           </table>
           <p>iOS jobs requerem runners macOS — execute localmente com <code>npm run test:ios</code>.</p>

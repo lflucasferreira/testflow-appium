@@ -4,8 +4,8 @@ set -euo pipefail
 OUTPUT_DIR="${ALLURE_REPORT_DIR:-allure-report}"
 
 if [ ! -d allure-results ] || [ -z "$(find allure-results -type f 2>/dev/null | head -1)" ]; then
-  echo "No Allure results found in allure-results/"
-  exit 1
+  echo "No Allure results found in allure-results/ — skipping report generation (docs site will use placeholder)."
+  exit 0
 fi
 
 rm -rf "${OUTPUT_DIR}"
