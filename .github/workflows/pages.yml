@@ -65,8 +65,9 @@ jobs:
 
       - name: Build GitHub Pages site
         run: |
-          mkdir -p site/report
+          mkdir -p site/report site/assets
           cp docs/index.html site/index.html
+          cp -R docs/assets/. site/assets/
           if [ -f allure-report/index.html ]; then
             cp -R allure-report/. site/report/
           else
