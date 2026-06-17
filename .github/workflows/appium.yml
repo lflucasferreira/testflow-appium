@@ -41,6 +41,7 @@ jobs:
 
       - name: Run API suite
         env:
+          API_BASE_URL: http://localhost:5050
           BASE_URL: http://localhost:5050
         run: npm run test:api
 
@@ -88,16 +89,14 @@ jobs:
           sudo udevadm trigger --name-match=kvm
 
       - uses: reactivecircus/android-emulator-runner@v2
+        env:
+          CI: true
         with:
           api-level: 34
           target: google_apis
           arch: x86_64
           profile: pixel_7
-          script: |
-            adb reverse tcp:5050 tcp:5050 || true
-            export BASE_URL=http://127.0.0.1:5050
-            export ANDROID_BASE_URL=http://127.0.0.1:5050
-            npm run test:smoke
+          script: bash scripts/ci-android-smoke.sh
 
       - name: Upload failure screenshots
         if: failure()

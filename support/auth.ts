@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { DEMO_EMAIL, DEMO_PASSWORD, getBaseUrl } from './config'
+import { DEMO_EMAIL, DEMO_PASSWORD, getApiBaseUrl, getBaseUrl } from './config'
 import { clickTestId, fillTestId, waitForTestId } from './selectors'
 
 export interface AuthSession {
@@ -12,7 +12,7 @@ export async function fetchAuthToken(
   email = DEMO_EMAIL,
   password = DEMO_PASSWORD,
 ): Promise<AuthSession> {
-  const response = await axios.post(`${getBaseUrl()}/api/auth/login`, { email, password })
+  const response = await axios.post(`${getApiBaseUrl()}/api/auth/login`, { email, password })
   return {
     email,
     name: response.data.user?.name ?? 'Demo User',

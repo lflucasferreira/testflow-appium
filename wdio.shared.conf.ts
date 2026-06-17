@@ -16,7 +16,7 @@ export const sharedConfig = {
   maxInstances: 1,
   logLevel: 'info',
   bail: 0,
-  waitforTimeout: 15000,
+  waitforTimeout: process.env.CI ? 30000 : 15000,
   connectionRetryTimeout: 180000,
   connectionRetryCount: 3,
   services: [
@@ -34,7 +34,7 @@ export const sharedConfig = {
   reporters: ['spec'],
   mochaOpts: {
     ui: 'bdd',
-    timeout: 90000,
+    timeout: process.env.CI ? 120000 : 90000,
   },
   afterTest: async (_test: Mocha.Test, _context: unknown, result: { passed?: boolean }) => {
     if (!result.passed) {

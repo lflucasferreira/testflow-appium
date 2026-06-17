@@ -9,6 +9,7 @@ const iosCaps = {
   'appium:newCommandTimeout': 240,
   'appium:safariAllowPopups': true,
   'appium:safariIgnoreFraudWarning': true,
+  'wdio:enforceWebDriverClassic': true,
 }
 
 export const config = {

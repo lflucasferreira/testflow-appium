@@ -9,6 +9,7 @@ const androidCaps = {
   'appium:chromedriverAutodownload': true,
   'appium:newCommandTimeout': 240,
   'appium:autoGrantPermissions': true,
+  'wdio:enforceWebDriverClassic': true,
 }
 
 export const config = {

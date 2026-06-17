@@ -21,7 +21,19 @@ function detectPlatform(): 'android' | 'ios' | 'unknown' {
   return 'unknown'
 }
 
+export function getApiBaseUrl(): string {
+  if (process.env.API_BASE_URL) return process.env.API_BASE_URL.replace(/\/$/, '')
+  if (process.env.BASE_URL) return process.env.BASE_URL.replace(/\/$/, '')
+  return DEFAULT_BASE_URL
+}
+
 export function getBaseUrl(): string {
+  if (process.env.ANDROID_BASE_URL && detectPlatform() === 'android') {
+    return process.env.ANDROID_BASE_URL.replace(/\/$/, '')
+  }
+  if (process.env.IOS_BASE_URL && detectPlatform() === 'ios') {
+    return process.env.IOS_BASE_URL.replace(/\/$/, '')
+  }
   if (process.env.BASE_URL) return process.env.BASE_URL.replace(/\/$/, '')
 
   const platform = detectPlatform()

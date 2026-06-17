@@ -1,13 +1,13 @@
 import assert from 'node:assert/strict'
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios'
-import { DEMO_EMAIL, DEMO_PASSWORD, getBaseUrl } from '../config'
+import { DEMO_EMAIL, DEMO_PASSWORD, getApiBaseUrl } from '../config'
 
 let client: AxiosInstance | null = null
 
 export function apiClient(): AxiosInstance {
   if (!client) {
     client = axios.create({
-      baseURL: getBaseUrl(),
+      baseURL: getApiBaseUrl(),
       validateStatus: () => true,
     })
   }
