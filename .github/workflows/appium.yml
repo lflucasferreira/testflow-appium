@@ -11,6 +11,9 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
   api:
     name: API — REST smoke
@@ -31,7 +34,7 @@ jobs:
 
       - uses: actions/setup-node@v5
         with:
-          node-version: 20
+          node-version: 24
 
       - uses: actions/cache@v5
         with:
@@ -74,7 +77,7 @@ jobs:
 
       - uses: actions/setup-node@v5
         with:
-          node-version: 20
+          node-version: 24
 
       - uses: actions/setup-java@v4
         with:
@@ -144,7 +147,7 @@ jobs:
 
       - uses: actions/setup-node@v5
         with:
-          node-version: 20
+          node-version: 24
 
       - run: npm install --no-audit --no-fund
 
@@ -184,6 +187,10 @@ jobs:
     needs: publish
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
