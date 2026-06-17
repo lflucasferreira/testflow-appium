@@ -43,7 +43,6 @@ Traceable test case IDs use the `[TC-xxxx]` prefix — see `support/constants/te
 ## Prerequisites
 
 - Node.js 20+
-- Java 17+ (for `allure generate` / `npm run report`)
 - Appium 2 (`npm install` installs it locally)
 - **Android:** Android SDK, emulator or device, Chrome
 - **iOS:** macOS, Xcode, iOS Simulator (for `npm run test:ios`)
@@ -117,15 +116,16 @@ npm run test:grep:appium
 
 ## Allure Report
 
-Mobile WDIO runs produce raw results in `allure-results/`. Generate and open the HTML report locally:
+Mobile WDIO runs produce raw results in `allure-results/`. Generate and open the **Allure Report 3** (Awesome UI) locally:
 
 ```bash
-# Requires Java 17+ for allure-commandline
 npm run test:smoke          # or any WDIO suite
 npm run allure:generate     # builds allure-report/
 npm run allure:open         # opens in browser
 
-# shortcut
+# generate + open
+npm run allure:serve
+# or
 npm run report
 ```
 

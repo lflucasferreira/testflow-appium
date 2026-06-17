@@ -8,5 +8,6 @@ if [ ! -d allure-results ] || [ -z "$(find allure-results -type f 2>/dev/null | 
   exit 1
 fi
 
-npx allure generate allure-results --clean -o "${OUTPUT_DIR}"
+rm -rf "${OUTPUT_DIR}"
+npx allure generate allure-results --output "${OUTPUT_DIR}"
 echo "Allure report generated at ${OUTPUT_DIR}/index.html"
