@@ -9,7 +9,7 @@ adb reverse tcp:5050 tcp:5050
 echo "Waiting for emulator to finish booting..."
 adb wait-for-device
 boot_completed=""
-for _ in $(seq 1 60); do
+for _ in $(seq 1 30); do
   boot_completed="$(adb shell getprop sys.boot_completed 2>/dev/null | tr -d '\r' || true)"
   if [ "${boot_completed}" = "1" ]; then
     break

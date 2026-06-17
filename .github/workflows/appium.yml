@@ -6,6 +6,11 @@ on:
   pull_request:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      run_full_suite:
+        description: Run full Android suite (~1–3h, manual only)
+        type: boolean
+        default: false
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -101,6 +106,9 @@ jobs:
           target: google_apis
           arch: x86_64
           profile: pixel_7
+          disable-animations: true
+          cores: 2
+          emulator-options: -no-snapshot-save -no-boot-anim -gpu swiftshader_indirect -no-audio -no-window
           script: bash scripts/ci-android-smoke.sh
 
       - name: Upload failure screenshots
@@ -125,7 +133,9 @@ jobs:
     name: Android — full suite (emulator)
     runs-on: ubuntu-latest
     needs: api
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: >-
+      github.event_name == 'workflow_dispatch'
+      && inputs.run_full_suite == true
     timeout-minutes: 180
     services:
       testflow:
@@ -174,6 +184,9 @@ jobs:
           target: google_apis
           arch: x86_64
           profile: pixel_7
+          disable-animations: true
+          cores: 2
+          emulator-options: -no-snapshot-save -no-boot-anim -gpu swiftshader_indirect -no-audio -no-window
           script: bash scripts/ci-android-suite.sh
 
       - name: Upload failure screenshots
