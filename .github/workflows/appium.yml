@@ -37,7 +37,7 @@ jobs:
           path: node_modules
           key: appium-${{ hashFiles('package-lock.json') }}
 
-      - run: npm ci
+      - run: npm install --no-audit --no-fund
 
       - name: Run API suite
         env:
@@ -76,7 +76,7 @@ jobs:
           path: node_modules
           key: appium-${{ hashFiles('package-lock.json') }}
 
-      - run: npm ci
+      - run: npm install --no-audit --no-fund
 
       - name: Install Appium drivers
         run: npm run appium:drivers

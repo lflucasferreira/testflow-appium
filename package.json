@@ -32,6 +32,9 @@
     "test:grep:appium": "wdio run wdio.conf.ts --mochaOpts.grep @appium",
     "check:testflow": "bash scripts/check-testflow.sh"
   },
+  "overrides": {
+    "sharp": "0.34.3"
+  },
   "devDependencies": {
     "@types/mocha": "^10.0.10",
     "@types/node": "^22.15.30",
