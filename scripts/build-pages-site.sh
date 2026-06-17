@@ -14,6 +14,18 @@ cp -R "${docs}/css" "${site}/css"
 cp -R "${docs}/js" "${site}/js"
 cp -R "${docs}/slides" "${site}/slides"
 
+mkdir -p "${site}/node_modules"
+cp -R "${root}/node_modules/reveal.js" "${site}/node_modules/reveal.js"
+cp -R "${root}/node_modules/highlight.js" "${site}/node_modules/highlight.js"
+
+# Slides live at site/slides/ on Pages — deps sit at site/node_modules/ (one level up).
+while IFS= read -r -d '' file; do
+  sed -e 's|\../../node_modules|../node_modules|g' \
+      -e 's|data-base="../../"|data-base="../"|g' \
+      "${file}" > "${file}.tmp"
+  mv "${file}.tmp" "${file}"
+done < <(find "${site}/slides" -name '*.html' -print0)
+
 if [ -f "${root}/allure-report/index.html" ]; then
   cp -R "${root}/allure-report/." "${site}/report/"
   echo "Using allure-report/ for site/report/"
@@ -43,6 +55,9 @@ required=(
   "${site}/js/theme-init.js"
   "${site}/js/theme-toggle.js"
   "${site}/slides/index.html"
+  "${site}/node_modules/reveal.js/dist/reveal.js"
+  "${site}/node_modules/reveal.js/dist/reveal.css"
+  "${site}/node_modules/highlight.js/styles/github-dark.css"
 )
 
 for path in "${required[@]}"; do
