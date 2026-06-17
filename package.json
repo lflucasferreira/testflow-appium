@@ -40,7 +40,9 @@
     "allure:open": "npx allure open allure-report",
     "allure:serve": "npm run allure:generate && npm run allure:open",
     "allure:clean": "rm -rf allure-results allure-report",
-    "report": "npm run allure:serve"
+    "report": "npm run allure:serve",
+    "pages:prepare-allure": "bash scripts/prepare-allure-for-pages.sh",
+    "pages:build": "bash scripts/build-pages-site.sh"
   },
   "overrides": {
     "sharp": "0.34.3"
