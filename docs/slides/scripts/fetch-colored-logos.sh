@@ -30,7 +30,7 @@ fetch androidstudio.svg androidstudio 3DDC84
 fetch xcode.svg xcode 147EFB
 fetch googlechrome.svg googlechrome 4285F4
 fetch safari.svg safari 006CFF
-fetch appium.svg appium 662D91
+# appium-logo.png — official logo from devicefarm.org (not Simple Icons)
 fetch webdriverio.svg webdriverio EA5906
 fetch mocha.svg mocha 8D6748
 fetch mochajs.svg mocha 8D6748

@@ -15,7 +15,7 @@
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="guia-completo.html">
+      <a class="brand" href="index.html">
         <img src="assets/appium-logo.png" alt="Appium" width="28" height="28" />
         Appium — Guia Completo
       </a>
@@ -24,6 +24,10 @@
         <a href="slides/index.html">Slides</a>
         <a href="complete-guide.html">English</a>
         <a href="https://appium.io/docs/en/latest/" target="_blank" rel="noopener">Docs oficiais</a>
+        <a class="nav-github" href="https://github.com/lflucasferreira/testflow-appium" target="_blank" rel="noopener">
+          <img src="assets/icons/github.svg" alt="" width="18" height="18" aria-hidden="true" />
+          GitHub
+        </a>
         <button type="button" class="theme-toggle" aria-label="Toggle theme">
           <span class="theme-toggle-icon theme-toggle-icon--dark" aria-hidden="true">☀</span>
           <span class="theme-toggle-icon theme-toggle-icon--light" aria-hidden="true">☾</span>
@@ -128,7 +132,7 @@
           <h2>Por que WebdriverIO?</h2>
           <div class="feature-grid">
             <div class="feature-card">
-              <h4 class="card-heading"><img src="assets/logos/appium.svg" alt="" width="24" height="24" class="logo-color card-logo" aria-hidden="true" /> Integração Appium nativa</h4>
+              <h4 class="card-heading"><img src="assets/appium-logo.png" alt="" width="24" height="24" class="logo-appium card-logo" aria-hidden="true" /> Integração Appium nativa</h4>
               <p><code>@wdio/appium-service</code> sobe o servidor Appium automaticamente no runner.</p>
             </div>
             <div class="feature-card">
@@ -146,7 +150,7 @@
           </div>
           <table class="compare-table compact">
             <thead>
-              <tr><th>Aspecto</th><th><img src="assets/logos/appium.svg" alt="" width="18" height="18" class="logo-color" aria-hidden="true" /> Appium + WDIO</th><th><img src="assets/logos/playwright.svg" alt="" width="18" height="18" class="logo-color" aria-hidden="true" /> Playwright (desktop)</th></tr>
+              <tr><th>Aspecto</th><th><img src="assets/appium-logo.png" alt="" width="18" height="18" class="logo-appium" aria-hidden="true" /> Appium + WDIO</th><th><img src="assets/logos/playwright.svg" alt="" width="18" height="18" class="logo-color" aria-hidden="true" /> Playwright (desktop)</th></tr>
             </thead>
             <tbody>
               <tr><td>Alvo</td><td><span class="logo-cell"><img src="assets/logos/googlechrome.svg" alt="" width="16" height="16" class="logo-color" aria-hidden="true" /> Chrome Android / <img src="assets/logos/safari.svg" alt="" width="16" height="16" class="logo-color" aria-hidden="true" /> Safari iOS</span></td><td><img src="assets/logos/playwright.svg" alt="" width="16" height="16" class="logo-color" aria-hidden="true" /> Chromium, Firefox, WebKit desktop</td></tr>
@@ -174,13 +178,13 @@
               <ul class="logo-list">
                 <li><img src="assets/logos/androidstudio.svg" alt="" width="20" height="20" class="logo-color" aria-hidden="true" /><span>Android SDK + emulator ou dispositivo</span></li>
                 <li><img src="assets/logos/googlechrome.svg" alt="" width="20" height="20" class="logo-color" aria-hidden="true" /><span>Chrome instalado no emulador</span></li>
-                <li><img src="assets/logos/appium.svg" alt="" width="20" height="20" class="logo-color" aria-hidden="true" /><span>Appium driver <code>uiautomator2</code></span></li>
+                <li><img src="assets/appium-logo.png" alt="" width="20" height="20" class="logo-appium" aria-hidden="true" /><span>Appium driver <code>uiautomator2</code></span></li>
               </ul>
               <h3 class="logo-heading"><img src="assets/logos/ios.svg" alt="" width="22" height="22" class="logo-color" aria-hidden="true" /> iOS (macOS only)</h3>
               <ul class="logo-list">
                 <li><img src="assets/logos/xcode.svg" alt="" width="20" height="20" class="logo-color" aria-hidden="true" /><span>Xcode + iOS Simulator</span></li>
                 <li><img src="assets/logos/safari.svg" alt="" width="20" height="20" class="logo-color" aria-hidden="true" /><span>Safari mobile web</span></li>
-                <li><img src="assets/logos/appium.svg" alt="" width="20" height="20" class="logo-color" aria-hidden="true" /><span>Appium driver <code>xcuitest</code></span></li>
+                <li><img src="assets/appium-logo.png" alt="" width="20" height="20" class="logo-appium" aria-hidden="true" /><span>Appium driver <code>xcuitest</code></span></li>
               </ul>
             </div>
             <div class="terminal">
@@ -712,7 +716,7 @@ it('long press on KPI card does not crash session', async () => {
               <p><code>browser.saveScreenshot(path)</code> sob demanda.</p>
             </div>
             <div class="feature-card">
-              <h4 class="card-heading"><img src="assets/logos/appium.svg" alt="" width="24" height="24" class="logo-color card-logo" aria-hidden="true" /> Metadata</h4>
+              <h4 class="card-heading"><img src="assets/appium-logo.png" alt="" width="24" height="24" class="logo-appium card-logo" aria-hidden="true" /> Metadata</h4>
               <p><code>browser.capabilities.platformName</code> — Android/iOS.</p>
             </div>
           </div>
@@ -1162,7 +1166,7 @@ npm run report              # atalho: generate + open</code></pre>
               <p>Apresentação Reveal.js com animações e navegação por teclado.</p>
             </a>
             <a class="feature-card" href="https://appium.io/docs/en/latest/" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">
-              <img class="card-logo logo-color" src="assets/logos/appium.svg" alt="" width="32" height="32" aria-hidden="true" />
+              <img class="card-logo logo-appium" src="assets/appium-logo.png" alt="" width="32" height="32" aria-hidden="true" />
               <h4>Documentação Appium</h4>
               <p>appium.io — referência oficial Appium 2.</p>
             </a>

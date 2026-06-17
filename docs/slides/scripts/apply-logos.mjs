@@ -7,9 +7,14 @@ const slidesDir = path.resolve(dir, '..')
 const docsDir = path.resolve(dir, '../..')
 
 const LOGO = 'assets/logos'
+const APPIUM_LOGO = 'assets/appium-logo.png'
 const img = (name, { color = false, macos = false, w = 24, cls = '' } = {}) => {
   const classes = ['logo-color', macos ? 'logo-macos' : '', cls].filter(Boolean).join(' ')
   return `<img src="${LOGO}/${name}" alt="" width="${w}" height="${w}"${classes ? ` class="${classes.trim()}"` : ''} aria-hidden="true" />`
+}
+const appiumImg = (w = 24, cls = '') => {
+  const classes = ['logo-appium', cls].filter(Boolean).join(' ')
+  return `<img src="${APPIUM_LOGO}" alt="" width="${w}" height="${w}"${classes ? ` class="${classes.trim()}"` : ''} aria-hidden="true" />`
 }
 
 const patches = [
@@ -26,11 +31,11 @@ const patches = [
   // PT feature cards
   [
     '<h4>📱 Integração Appium nativa</h4>',
-    `<h4 class="card-heading">${img('appium.svg', { color: true, cls: 'card-logo' })} Integração Appium nativa</h4>`,
+    `<h4 class="card-heading">${appiumImg(24, 'card-logo')} Integração Appium nativa</h4>`,
   ],
   [
     '<h4>📱 Native Appium integration</h4>',
-    `<h4 class="card-heading">${img('appium.svg', { color: true, cls: 'card-logo' })} Native Appium integration</h4>`,
+    `<h4 class="card-heading">${appiumImg(24, 'card-logo')} Native Appium integration</h4>`,
   ],
   [
     '<h4>🎯 expect-webdriverio</h4>',
@@ -69,8 +74,8 @@ const patches = [
   ],
 
   // Next steps book emoji
-  ['<h4>📖 Este guia (PT)</h4>', `<h4 class="card-heading">${img('appium-logo.png', { color: true, cls: 'card-logo' })} Este guia (PT)</h4>`],
-  ['<h4>📖 Complete Guide (EN)</h4>', `<h4 class="card-heading">${img('appium-logo.png', { color: true, cls: 'card-logo' })} Complete Guide (EN)</h4>`],
+  ['<h4>📖 Este guia (PT)</h4>', `<h4 class="card-heading">${appiumImg(24, 'card-logo')} Este guia (PT)</h4>`],
+  ['<h4>📖 Complete Guide (EN)</h4>', `<h4 class="card-heading">${appiumImg(24, 'card-logo')} Complete Guide (EN)</h4>`],
 
   // WebdriverIO doc link
   [
@@ -93,7 +98,7 @@ const patches = [
   ],
   [
     '<div class="icon">🔧</div>\n              <h4>Appium 2 local</h4>',
-    `<img class="icon-logo logo-color" src="${LOGO}/appium.svg" alt="" aria-hidden="true" />\n              <h4>Appium 2 local</h4>`,
+    `<img class="icon-logo logo-appium" src="${APPIUM_LOGO}" alt="" aria-hidden="true" />\n              <h4>Appium 2 local</h4>`,
   ],
   [
     '<div class="icon">📊</div>\n              <h4>Allure + CI</h4>',
@@ -118,13 +123,13 @@ const prereqPt = `<h3>Ambiente geral</h3>
               <ul class="logo-list">
                 <li>${img('androidstudio.svg', { color: true, w: 20 })}<span>Android SDK + emulator ou dispositivo</span></li>
                 <li>${img('googlechrome.svg', { color: true, w: 20 })}<span>Chrome instalado no emulador</span></li>
-                <li>${img('appium.svg', { color: true, w: 20 })}<span>Appium driver <code>uiautomator2</code></span></li>
+                <li>${appiumImg(20)}<span>Appium driver <code>uiautomator2</code></span></li>
               </ul>
               <h3 class="logo-heading">${img('ios.svg', { color: true, w: 22 })} iOS (macOS only)</h3>
               <ul class="logo-list">
                 <li>${img('xcode.svg', { color: true, w: 20 })}<span>Xcode + iOS Simulator</span></li>
                 <li>${img('safari.svg', { color: true, w: 20 })}<span>Safari mobile web</span></li>
-                <li>${img('appium.svg', { color: true, w: 20 })}<span>Appium driver <code>xcuitest</code></span></li>
+                <li>${appiumImg(20)}<span>Appium driver <code>xcuitest</code></span></li>
               </ul>`
 
 const prereqEn = `<h3>General environment</h3>
@@ -139,13 +144,13 @@ const prereqEn = `<h3>General environment</h3>
               <ul class="logo-list">
                 <li>${img('androidstudio.svg', { color: true, w: 20 })}<span>Android SDK + emulator or device</span></li>
                 <li>${img('googlechrome.svg', { color: true, w: 20 })}<span>Chrome on the emulator</span></li>
-                <li>${img('appium.svg', { color: true, w: 20 })}<span>Appium driver <code>uiautomator2</code></span></li>
+                <li>${appiumImg(20)}<span>Appium driver <code>uiautomator2</code></span></li>
               </ul>
               <h3 class="logo-heading">${img('ios.svg', { color: true, w: 22 })} iOS (macOS only)</h3>
               <ul class="logo-list">
                 <li>${img('xcode.svg', { color: true, w: 20 })}<span>Xcode + iOS Simulator</span></li>
                 <li>${img('safari.svg', { color: true, w: 20 })}<span>Safari mobile web</span></li>
-                <li>${img('appium.svg', { color: true, w: 20 })}<span>Appium driver <code>xcuitest</code></span></li>
+                <li>${appiumImg(20)}<span>Appium driver <code>xcuitest</code></span></li>
               </ul>`
 
 const toolRowPt = `<div class="tool-row">
@@ -166,12 +171,12 @@ const toolRowEn = `<div class="tool-row">
             <span class="tool-chip">${img('ios.svg', { color: true, w: 16 })} iOS</span>
           </div>`
 
-const comparePt = `<tr><th>Aspecto</th><th>${img('appium.svg', { color: true, w: 18 })} Appium + WDIO</th><th>${img('playwright.svg', { color: true, w: 18 })} Playwright (desktop)</th></tr>
+const comparePt = `<tr><th>Aspecto</th><th>${appiumImg(18)} Appium + WDIO</th><th>${img('playwright.svg', { color: true, w: 18 })} Playwright (desktop)</th></tr>
             </thead>
             <tbody>
               <tr><td>Alvo</td><td><span class="logo-cell">${img('googlechrome.svg', { color: true, w: 16 })} Chrome Android / ${img('safari.svg', { color: true, w: 16 })} Safari iOS</span></td><td>${img('playwright.svg', { color: true, w: 16 })} Chromium, Firefox, WebKit desktop</td></tr>`
 
-const compareEn = `<tr><th>Aspect</th><th>${img('appium.svg', { color: true, w: 18 })} Appium + WDIO</th><th>${img('playwright.svg', { color: true, w: 18 })} Playwright (desktop)</th></tr>
+const compareEn = `<tr><th>Aspect</th><th>${appiumImg(18)} Appium + WDIO</th><th>${img('playwright.svg', { color: true, w: 18 })} Playwright (desktop)</th></tr>
             </thead>
             <tbody>
               <tr><td>Target</td><td><span class="logo-cell">${img('googlechrome.svg', { color: true, w: 16 })} Chrome Android / ${img('safari.svg', { color: true, w: 16 })} Safari iOS</span></td><td>${img('playwright.svg', { color: true, w: 16 })} Chromium, Firefox, WebKit desktop</td></tr>`

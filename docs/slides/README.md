@@ -7,8 +7,9 @@ Apresentação Reveal.js sobre Appium 2 + WebdriverIO (mobile web, gestos, conte
 | Arquivo | Descrição |
 |---------|-----------|
 | `index.html` | Apresentação interativa (Reveal.js) |
+| `appium-intro-slides.pdf` | Versão PDF (33 páginas — inclui sub-slides verticais) |
 | `css/theme-appium.css` | Tema visual Appium |
-| `assets/appium-logo.png` | Official Appium logo |
+| `assets/appium-logo.png` | Official Appium logo ([devicefarm.org](https://devicefarm.org/assets/images/appium-logo.png)) |
 | `assets/logos/` | Brand SVGs (macOS, Windows, Linux, Node.js, Docker, Android, etc.) |
 
 Guias longos ficam em [`../guia-completo.html`](../guia-completo.html) (PT) e [`../complete-guide.html`](../complete-guide.html) (EN).

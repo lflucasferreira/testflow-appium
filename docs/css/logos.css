@@ -22,13 +22,22 @@
 
 /* Colored brand logos — no filter */
 .logo-heading img.logo-color,
+.logo-heading img.logo-appium,
 .card-heading img.logo-color,
+.card-heading img.logo-appium,
 .logo-inline.logo-color,
+.logo-inline.logo-appium,
 .feature-card .card-logo.logo-color,
+.feature-card .card-logo.logo-appium,
 .reveal .logo-heading img.logo-color,
+.reveal .logo-heading img.logo-appium,
 ul.logo-list li img.logo-color,
+ul.logo-list li img.logo-appium,
 .tool-chip img.logo-color,
-.compare-table .logo-cell img.logo-color {
+.tool-chip img.logo-appium,
+.compare-table .logo-cell img.logo-color,
+.compare-table .logo-cell img.logo-appium,
+.reveal .feature-card .icon-logo.logo-appium {
   filter: none;
   opacity: 1;
 }
@@ -45,14 +54,14 @@ ul.logo-list li img.logo-color,
 }
 
 /* Monochrome icons only (no brand color in SVG) */
-.logo-heading img:not(.logo-color):not(.logo-macos):not(.logo-github-adaptive),
-.card-heading img:not(.logo-color):not(.logo-macos):not(.logo-github-adaptive) {
+.logo-heading img:not(.logo-color):not(.logo-appium):not(.logo-macos):not(.logo-github-adaptive),
+.card-heading img:not(.logo-color):not(.logo-appium):not(.logo-macos):not(.logo-github-adaptive) {
   filter: brightness(0) invert(1);
   opacity: 0.92;
 }
 
-[data-theme="light"] .logo-heading img:not(.logo-color):not(.logo-macos):not(.logo-github-adaptive),
-[data-theme="light"] .card-heading img:not(.logo-color):not(.logo-macos):not(.logo-github-adaptive) {
+[data-theme="light"] .logo-heading img:not(.logo-color):not(.logo-appium):not(.logo-macos):not(.logo-github-adaptive),
+[data-theme="light"] .card-heading img:not(.logo-color):not(.logo-appium):not(.logo-macos):not(.logo-github-adaptive) {
   filter: none;
   opacity: 1;
 }
@@ -65,12 +74,12 @@ ul.logo-list li img.logo-color,
   object-fit: contain;
 }
 
-.logo-inline:not(.logo-color) {
+.logo-inline:not(.logo-color):not(.logo-appium) {
   filter: brightness(0) invert(1);
   opacity: 0.88;
 }
 
-[data-theme="light"] .logo-inline:not(.logo-color) {
+[data-theme="light"] .logo-inline:not(.logo-color):not(.logo-appium) {
   filter: none;
   opacity: 1;
 }
@@ -94,12 +103,12 @@ ul.logo-list li img {
   object-fit: contain;
 }
 
-ul.logo-list li img:not(.logo-color) {
+ul.logo-list li img:not(.logo-color):not(.logo-appium) {
   filter: brightness(0) invert(1);
   opacity: 0.88;
 }
 
-[data-theme="light"] ul.logo-list li img:not(.logo-color) {
+[data-theme="light"] ul.logo-list li img:not(.logo-color):not(.logo-appium) {
   filter: none;
   opacity: 1;
 }
@@ -129,12 +138,12 @@ ul.logo-list li img:not(.logo-color) {
   object-fit: contain;
 }
 
-.tool-chip img:not(.logo-color) {
+.tool-chip img:not(.logo-color):not(.logo-appium) {
   filter: brightness(0) invert(1);
   opacity: 0.9;
 }
 
-[data-theme="light"] .tool-chip img:not(.logo-color) {
+[data-theme="light"] .tool-chip img:not(.logo-color):not(.logo-appium) {
   filter: none;
   opacity: 1;
 }
@@ -156,12 +165,12 @@ ul.logo-list li img:not(.logo-color) {
   opacity: 1;
 }
 
-.reveal .feature-card .icon-logo:not(.logo-color) {
+.reveal .feature-card .icon-logo:not(.logo-color):not(.logo-appium) {
   filter: brightness(0) invert(1);
   opacity: 0.95;
 }
 
-[data-theme="light"] .reveal .feature-card .icon-logo:not(.logo-color) {
+[data-theme="light"] .reveal .feature-card .icon-logo:not(.logo-color):not(.logo-appium) {
   filter: none;
   opacity: 1;
 }
@@ -198,12 +207,12 @@ ul.logo-list li img:not(.logo-color) {
   vertical-align: middle;
 }
 
-.compare-table .logo-cell img:not(.logo-color) {
+.compare-table .logo-cell img:not(.logo-color):not(.logo-appium) {
   filter: brightness(0) invert(1);
   opacity: 0.85;
 }
 
-[data-theme="light"] .compare-table .logo-cell img:not(.logo-color) {
+[data-theme="light"] .compare-table .logo-cell img:not(.logo-color):not(.logo-appium) {
   filter: none;
   opacity: 1;
 }
@@ -224,6 +233,7 @@ ul.logo-list li img:not(.logo-color) {
   object-fit: contain;
 }
 
+.slide-cta .link-card img.logo-appium,
 .slide-cta .link-card img.logo-color,
 .slide-cta .link-card img[src*='.png'] {
   filter: none;

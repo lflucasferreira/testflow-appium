@@ -103,7 +103,7 @@
               <p>Chrome no Android, Safari no iOS — POM com <code>data-testid</code>.</p>
             </div>
             <div class="feature-card fragment fade-up">
-              <img class="icon-logo logo-color" src="assets/logos/appium.svg" alt="" aria-hidden="true" />
+              <img class="icon-logo logo-appium" src="assets/appium-logo.png" alt="" aria-hidden="true" />
               <h4>Appium 2 local</h4>
               <p><code>@wdio/appium-service</code> sobe o server automaticamente no <code>wdio run</code>.</p>
             </div>
@@ -661,7 +661,7 @@ export async function assertScreenshotMatches(name, maxMismatchPercent = 5) {
                 <tr><td><code>npm run report</code></td><td>generate + open</td></tr>
                 <tr class="group-row"><td colspan="2">Slides</td></tr>
                 <tr><td><code>npm run slides</code></td><td>Servidor local :3336</td></tr>
-                <tr><td><code>npm run slides:pdf</code></td><td>Exporta PDF via decktape</td></tr>
+                <tr><td><code>npm run slides:pdf</code></td><td>Exporta <code>appium-intro-slides.pdf</code></td></tr>
               </tbody>
             </table>
           </section>
@@ -726,13 +726,18 @@ npm run report</code></pre>
           <h2>Próximos passos</h2>
           <p>Você já sabe instalar Appium, configurar WebdriverIO e rodar mobile web no TestFlow.</p>
           <div class="links">
+            <a class="link-card fragment fade-up" href="appium-intro-slides.pdf" target="_blank" rel="noopener">
+              <img src="assets/icons/revealjs.svg" alt="" width="24" height="24" aria-hidden="true" />
+              <strong>Slides (PDF)</strong>
+              appium-intro-slides.pdf
+            </a>
             <a class="link-card fragment fade-up" href="../guia-completo.html">
               <img src="assets/appium-logo.png" alt="" width="24" height="24" aria-hidden="true" />
               <strong>Guia completo (PT)</strong>
               Instalação e referência
             </a>
             <a class="link-card fragment fade-up" href="https://appium.io/docs/en/latest/" target="_blank" rel="noopener">
-              <img src="assets/logos/appium.svg" alt="" width="24" height="24" class="logo-color" aria-hidden="true" />
+              <img src="assets/appium-logo.png" alt="" width="24" height="24" class="logo-appium" aria-hidden="true" />
               <strong>Documentação</strong>
               appium.io
             </a>
