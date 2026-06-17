@@ -13,7 +13,7 @@
     "test:android": "PLATFORM=android wdio run wdio.conf.ts",
     "test:ios": "PLATFORM=ios wdio run wdio.ios.conf.ts",
     "test:both": "npm run test:android && npm run test:ios",
-    "test:api": "mocha --require ts-node/register/transpile-only --timeout 30000 'tests/api/**/*.spec.ts'",
+    "test:api": "mocha --config .mocharc.api.json",
     "test:smoke": "wdio run wdio.conf.ts --spec tests/smoke/**/*.spec.ts",
     "test:auth": "wdio run wdio.conf.ts --spec tests/auth/**/*.spec.ts",
     "test:dashboard": "wdio run wdio.conf.ts --spec tests/dashboard/**/*.spec.ts",
@@ -44,9 +44,6 @@
     "pages:prepare-allure": "bash scripts/prepare-allure-for-pages.sh",
     "pages:build": "bash scripts/build-pages-site.sh"
   },
-  "overrides": {
-    "sharp": "0.34.3"
-  },
   "devDependencies": {
     "@types/mocha": "^10.0.10",
     "@types/node": "^22.15.30",
@@ -58,6 +55,7 @@
     "@wdio/mocha-framework": "^9.12.0",
     "@wdio/spec-reporter": "^9.12.0",
     "allure": "^3.11.0",
+    "allure-mocha": "^3.10.0",
     "appium": "^2.18.0",
     "appium-uiautomator2-driver": "^4.2.7",
     "appium-xcuitest-driver": "^9.2.4",

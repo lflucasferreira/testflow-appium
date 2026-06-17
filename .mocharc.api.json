@@ -1,0 +1,7 @@
+{
+  "require": ["ts-node/register/transpile-only"],
+  "timeout": 30000,
+  "spec": ["tests/api/**/*.spec.ts"],
+  "reporter": "allure-mocha",
+  "reporter-option": ["resultsDir=allure-results"]
+}
