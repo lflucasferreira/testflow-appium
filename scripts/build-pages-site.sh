@@ -2,11 +2,17 @@
 set -euo pipefail
 
 root="$(cd "$(dirname "$0")/.." && pwd)"
+docs="${root}/docs"
 site="${root}/site"
 
-mkdir -p "${site}/report" "${site}/assets"
-cp "${root}/docs/index.html" "${site}/index.html"
-cp -R "${root}/docs/assets/." "${site}/assets/"
+rm -rf "${site}"
+mkdir -p "${site}/report"
+
+cp "${docs}/index.html" "${site}/index.html"
+cp -R "${docs}/assets" "${site}/assets"
+cp -R "${docs}/css" "${site}/css"
+cp -R "${docs}/js" "${site}/js"
+cp -R "${docs}/slides" "${site}/slides"
 
 if [ -f "${root}/allure-report/index.html" ]; then
   cp -R "${root}/allure-report/." "${site}/report/"
@@ -29,4 +35,21 @@ EOF
 fi
 
 touch "${site}/.nojekyll"
+
+required=(
+  "${site}/index.html"
+  "${site}/css/landing.css"
+  "${site}/css/theme-toggle.css"
+  "${site}/js/theme-init.js"
+  "${site}/js/theme-toggle.js"
+  "${site}/slides/index.html"
+)
+
+for path in "${required[@]}"; do
+  if [ ! -e "${path}" ]; then
+    echo "Missing required Pages asset: ${path}" >&2
+    exit 1
+  fi
+done
+
 echo "GitHub Pages site ready at site/"

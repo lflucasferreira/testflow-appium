@@ -3,6 +3,7 @@ node_modules/
 .allure/
 allure-results/
 allure-report/
+site/
 appium.log
 screenshots/
 test-results/
