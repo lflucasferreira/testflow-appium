@@ -13,6 +13,7 @@ concurrency:
 
 permissions:
   contents: read
+  actions: write
 
 jobs:
   api:
@@ -132,6 +133,14 @@ jobs:
           path: allure-results/
           if-no-files-found: ignore
 
+      - name: Upload Allure report
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: allure-report-android
+          path: allure-report/
+          if-no-files-found: ignore
+
   publish:
     name: Build Allure report & publish GitHub Pages
     runs-on: ubuntu-latest
@@ -147,6 +156,7 @@ jobs:
       contents: read
       pages: write
       id-token: write
+      actions: read
     steps:
       - uses: actions/checkout@v5
 
@@ -161,6 +171,13 @@ jobs:
 
       - run: npm install --no-audit --no-fund
 
+      - name: Download Allure report (Android)
+        uses: actions/download-artifact@v7
+        with:
+          name: allure-report-android
+          path: allure-report
+        continue-on-error: true
+
       - name: Download Allure results
         uses: actions/download-artifact@v7
         with:
@@ -169,8 +186,8 @@ jobs:
           path: allure-results
         continue-on-error: true
 
-      - name: Generate Allure report
-        run: npm run allure:generate
+      - name: Prepare Allure report for Pages
+        run: bash scripts/prepare-allure-for-pages.sh
         continue-on-error: true
 
       - name: Build GitHub Pages site
