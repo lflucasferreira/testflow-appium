@@ -33,4 +33,6 @@ echo "Checking TestFlow health at ${API_BASE_URL}/health ..."
 curl -sf "${API_BASE_URL}/health" | tee /tmp/testflow-health.json
 echo
 
+mkdir -p screenshots test-results
+
 npm run test:smoke
