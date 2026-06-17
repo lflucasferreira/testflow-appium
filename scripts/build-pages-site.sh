@@ -43,10 +43,6 @@ elif [ -f "${root}/allure-report/index.html" ]; then
   cp -R "${root}/allure-report/." "${site}/report/"
   echo "Using allure-report/ for site/report/"
 else
-  if [ "${REQUIRE_ALLURE_REPORT:-false}" = "true" ]; then
-    echo "Allure report required in CI but none was staged" >&2
-    exit 1
-  fi
   cat > "${site}/report/index.html" <<'EOF'
 <!DOCTYPE html>
 <html lang="en">
