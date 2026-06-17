@@ -3,6 +3,10 @@ set -euo pipefail
 
 if [ -f allure-report/index.html ]; then
   echo "Using existing allure-report/index.html"
+  staging="${ALLURE_PAGES_DIR:-pages-allure-staging}"
+  rm -rf "${staging}"
+  cp -R allure-report "${staging}"
+  echo "Staged for Pages at ${staging}/index.html"
   exit 0
 fi
 
@@ -25,4 +29,9 @@ if [ ! -f allure-report/index.html ]; then
   exit 1
 fi
 
+staging="${ALLURE_PAGES_DIR:-pages-allure-staging}"
+rm -rf "${staging}"
+cp -R allure-report "${staging}"
+
 echo "Allure report ready at allure-report/index.html"
+echo "Staged for Pages at ${staging}/index.html"

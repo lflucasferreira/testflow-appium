@@ -5,6 +5,7 @@ allure-results/
 allure-report/
 site/
 ci-artifacts/
+pages-allure-staging/
 appium.log
 screenshots/
 test-results/

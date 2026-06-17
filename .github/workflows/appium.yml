@@ -234,13 +234,25 @@ jobs:
           path: ci-artifacts
 
       - name: Consolidate Allure artifacts
-        run: bash scripts/consolidate-allure-artifacts.sh
+        run: |
+          ls -la ci-artifacts || true
+          find ci-artifacts -maxdepth 3 -type d 2>/dev/null || true
+          bash scripts/consolidate-allure-artifacts.sh
 
       - name: Prepare Allure report for Pages
         run: bash scripts/prepare-allure-for-pages.sh
 
       - name: Build GitHub Pages site
+        env:
+          REQUIRE_ALLURE_REPORT: true
         run: bash scripts/build-pages-site.sh
+
+      - name: Verify Allure report in Pages site
+        run: |
+          test -f site/report/index.html
+          test "$(wc -c < site/report/index.html | tr -d ' ')" -gt 500
+          grep -qv "No Allure report generated" site/report/index.html
+          echo "Allure report verified in site/report/"
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

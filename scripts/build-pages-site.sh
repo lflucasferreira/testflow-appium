@@ -26,10 +26,17 @@ while IFS= read -r -d '' file; do
   mv "${file}.tmp" "${file}"
 done < <(find "${site}/slides" -name '*.html' -print0)
 
-if [ -f "${root}/allure-report/index.html" ]; then
+if [ -d "${root}/pages-allure-staging" ] && [ -f "${root}/pages-allure-staging/index.html" ]; then
+  cp -R "${root}/pages-allure-staging/." "${site}/report/"
+  echo "Using pages-allure-staging/ for site/report/"
+elif [ -f "${root}/allure-report/index.html" ]; then
   cp -R "${root}/allure-report/." "${site}/report/"
   echo "Using allure-report/ for site/report/"
 else
+  if [ "${REQUIRE_ALLURE_REPORT:-false}" = "true" ]; then
+    echo "Allure report required in CI but none was staged" >&2
+    exit 1
+  fi
   cat > "${site}/report/index.html" <<'EOF'
 <!DOCTYPE html>
 <html lang="en">
