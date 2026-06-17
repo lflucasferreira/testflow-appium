@@ -9,6 +9,13 @@ const androidCaps = {
   'appium:chromedriverAutodownload': true,
   'appium:newCommandTimeout': 240,
   'appium:autoGrantPermissions': true,
+  'appium:pageLoadStrategy': 'eager',
+  'appium:chromeOptions': {
+    args: [
+      '--disable-features=HttpsFirstBalancedModeAutoEnable,HttpsUpgrades',
+      '--allow-insecure-localhost',
+    ],
+  },
   'wdio:enforceWebDriverClassic': true,
 }
 

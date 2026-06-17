@@ -1,5 +1,6 @@
 import axios from 'axios'
-import { DEMO_EMAIL, DEMO_PASSWORD, getApiBaseUrl, getBaseUrl } from './config'
+import { DEMO_EMAIL, DEMO_PASSWORD, getApiBaseUrl } from './config'
+import { openAppPath, seedSessionOnOrigin } from './navigation'
 import { clickTestId, fillTestId, waitForTestId } from './selectors'
 
 export interface AuthSession {
@@ -32,25 +33,23 @@ export async function loginViaApi(
   password = DEMO_PASSWORD,
 ): Promise<AuthSession> {
   const session = await fetchAuthToken(email, password)
-  await browser.url(`${getBaseUrl()}/web/login.html`)
-  await injectAuthSession(session)
-  await browser.url(`${getBaseUrl()}/web/dashboard.html`)
+  await seedSessionOnOrigin(() => injectAuthSession(session))
+  await openAppPath('/web/dashboard.html')
   await waitForTestId('page-dashboard')
   return session
 }
 
 export async function visitAuthenticated(path: string): Promise<void> {
   const session = await fetchAuthToken()
-  await browser.url(`${getBaseUrl()}/web/login.html`)
-  await injectAuthSession(session)
-  await browser.url(`${getBaseUrl()}${path.startsWith('/') ? path : `/${path}`}`)
+  await seedSessionOnOrigin(() => injectAuthSession(session))
+  await openAppPath(path.startsWith('/') ? path : `/${path}`)
 }
 
 export async function loginViaUi(
   email = DEMO_EMAIL,
   password = DEMO_PASSWORD,
 ): Promise<void> {
-  await browser.url(`${getBaseUrl()}/web/login.html`)
+  await openAppPath('/web/login.html')
   await fillTestId('login-email', email)
   await fillTestId('login-password', password)
   await clickTestId('login-submit')
@@ -59,9 +58,8 @@ export async function loginViaUi(
 
 export async function visitWithToken(path: string, token: string, email = DEMO_EMAIL): Promise<void> {
   const session: AuthSession = { email, name: 'Demo User', token }
-  await browser.url(`${getBaseUrl()}/web/login.html`)
-  await injectAuthSession(session)
-  await browser.url(`${getBaseUrl()}${path.startsWith('/') ? path : `/${path}`}`)
+  await seedSessionOnOrigin(() => injectAuthSession(session))
+  await openAppPath(path.startsWith('/') ? path : `/${path}`)
 }
 
 export async function logoutViaUi(): Promise<void> {

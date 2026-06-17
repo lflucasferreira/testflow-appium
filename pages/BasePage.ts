@@ -1,5 +1,5 @@
+import { openAppPath } from '../support/navigation'
 import { $, byTestId, clickTestId, fillTestId, waitForTestId } from '../support/selectors'
-import { appPath } from '../support/config'
 
 export class BasePage {
   protected testId(id: string) {
@@ -11,7 +11,7 @@ export class BasePage {
   }
 
   async open(path: string) {
-    await browser.url(appPath(path))
+    await openAppPath(path)
     return this
   }
 

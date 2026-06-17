@@ -1,5 +1,4 @@
-import { fetchAuthToken, loginViaApi, visitWithToken } from '../../support/auth'
-import { DEMO_EMAIL, DEMO_PASSWORD, getBaseUrl } from '../../support/config'
+import { fetchAuthToken, loginViaApi, logoutViaUi, visitWithToken } from '../../support/auth'
 import { tc, TC } from '../../support/constants/testCases'
 import { waitForTestId } from '../../support/selectors'
 
@@ -50,18 +49,11 @@ describe('Smoke — sidebar navigation @smoke', () => {
 })
 
 describe('Smoke — logout @smoke', () => {
-  it(tc(TC.SMOKE_LOGOUT, 'logout clears session and redirects to login'), async () => {
-    await browser.url(`${getBaseUrl()}/web/login.html`)
-    await waitForTestId('login-email').then(async (el) => {
-      await el.setValue(DEMO_EMAIL)
-    })
-    await waitForTestId('login-password').then(async (el) => {
-      await el.setValue(DEMO_PASSWORD)
-    })
-    await waitForTestId('login-submit').then((el) => el.click())
+  it(tc(TC.SMOKE_LOGOUT, 'logout clears session and redirects to index'), async () => {
+    await loginViaApi()
     await waitForTestId('page-dashboard')
 
-    await waitForTestId('nav-logout').then((el) => el.click())
+    await logoutViaUi()
     await expect(browser).toHaveUrl(expect.stringMatching(/\/web\/index\.html/))
 
     const auth = await browser.execute(() => sessionStorage.getItem('sandbox-auth'))
