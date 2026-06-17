@@ -4,6 +4,7 @@ node_modules/
 allure-results/
 allure-report/
 site/
+ci-artifacts/
 appium.log
 screenshots/
 test-results/
