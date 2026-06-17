@@ -12,6 +12,8 @@ cp "${docs}/index.html" "${site}/index.html"
 cp -R "${docs}/assets" "${site}/assets"
 cp -R "${docs}/css" "${site}/css"
 cp -R "${docs}/js" "${site}/js"
+cp "${docs}/guia-completo.html" "${site}/guia-completo.html"
+cp "${docs}/complete-guide.html" "${site}/complete-guide.html"
 cp -R "${docs}/slides" "${site}/slides"
 
 mkdir -p "${site}/node_modules"
@@ -25,6 +27,14 @@ while IFS= read -r -d '' file; do
       "${file}" > "${file}.tmp"
   mv "${file}.tmp" "${file}"
 done < <(find "${site}/slides" -name '*.html' -print0)
+
+# Guides live at site root — node_modules at site/node_modules/.
+for guide in "${site}/guia-completo.html" "${site}/complete-guide.html"; do
+  sed -e 's|\../node_modules|node_modules|g' \
+      -e 's|data-base="../node_modules|data-base="node_modules|g' \
+      "${guide}" > "${guide}.tmp"
+  mv "${guide}.tmp" "${guide}"
+done
 
 if [ -d "${root}/pages-allure-staging" ] && [ -f "${root}/pages-allure-staging/index.html" ]; then
   cp -R "${root}/pages-allure-staging/." "${site}/report/"
@@ -62,6 +72,8 @@ required=(
   "${site}/js/theme-init.js"
   "${site}/js/theme-toggle.js"
   "${site}/slides/index.html"
+  "${site}/guia-completo.html"
+  "${site}/css/guide.css"
   "${site}/node_modules/reveal.js/dist/reveal.js"
   "${site}/node_modules/reveal.js/dist/reveal.css"
   "${site}/node_modules/highlight.js/styles/github-dark.css"

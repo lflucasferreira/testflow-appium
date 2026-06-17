@@ -7,20 +7,19 @@ Apresentação Reveal.js sobre Appium 2 + WebdriverIO (mobile web, gestos, conte
 | Arquivo | Descrição |
 |---------|-----------|
 | `index.html` | Apresentação interativa (Reveal.js) |
-| `guia-completo.html` | Guia passo a passo em português (instalação + todos os comandos) |
-| `complete-guide.html` | Step-by-step guide in English (setup + all commands) |
 | `css/theme-appium.css` | Tema visual Appium |
 | `assets/appium-logo.png` | Official Appium logo |
 | `assets/logos/` | Brand SVGs (macOS, Windows, Linux, Node.js, Docker, Android, etc.) |
-| `css/logos.css` | Logo heading / chip styles |
+
+Guias longos ficam em [`../guia-completo.html`](../guia-completo.html) (PT) e [`../complete-guide.html`](../complete-guide.html) (EN).
 
 ## Visualizar no browser
 
 ```bash
 npm run slides
-# http://localhost:3336/docs/slides/                        ← slides Reveal.js
-# http://localhost:3336/docs/slides/guia-completo.html      ← guia PT
-# http://localhost:3336/docs/slides/complete-guide.html     ← guide EN
+# http://localhost:3336/docs/slides/              ← slides Reveal.js
+# http://localhost:3336/docs/guia-completo.html     ← guia PT
+# http://localhost:3336/docs/complete-guide.html    ← guide EN
 ```
 
 Abrir direto:

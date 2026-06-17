@@ -1,29 +1,29 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Appium — Guia Completo (Instalação &amp; Comandos)</title>
-    <meta name="description" content="Passo a passo: o que é Appium 2, WebdriverIO, instalação, estrutura de projeto e referência de todos os comandos dos slides." />
+    <title>Appium — Complete Guide (Setup &amp; Commands)</title>
+    <meta name="description" content="Step-by-step: what Appium 2 is, WebdriverIO, installation, project structure, and every command from the slides." />
     <link rel="icon" href="assets/appium-logo.png" type="image/png" />
-    <script src="../js/theme-init.js"></script>
-    <link id="hljs-theme" rel="stylesheet" data-base="../../node_modules/highlight.js/styles/" href="../../node_modules/highlight.js/styles/github-dark.min.css" />
+    <script src="js/theme-init.js"></script>
+    <link id="hljs-theme" rel="stylesheet" data-base="../node_modules/highlight.js/styles/" href="../node_modules/highlight.js/styles/github-dark.min.css" />
     <link rel="stylesheet" href="css/guide.css" />
     <link rel="stylesheet" href="css/logos.css" />
-    <link rel="stylesheet" href="css/theme-light.css" />
-    <link rel="stylesheet" href="../css/theme-toggle.css" />
+    <link rel="stylesheet" href="css/guide-light.css" />
+    <link rel="stylesheet" href="css/theme-toggle.css" />
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="index.html">
+      <a class="brand" href="complete-guide.html">
         <img src="assets/appium-logo.png" alt="Appium" width="28" height="28" />
-        Appium — Guia Completo
+        Appium — Complete Guide
       </a>
       <nav class="header-links">
-        <a href="../index.html">Home</a>
-        <a href="index.html">Slides</a>
-        <a href="complete-guide.html">English</a>
-        <a href="https://appium.io/docs/en/latest/" target="_blank" rel="noopener">Docs oficiais</a>
+        <a href="index.html">Home</a>
+        <a href="slides/index.html">Slides</a>
+        <a href="guia-completo.html">Português</a>
+        <a href="https://appium.io/docs/en/latest/" target="_blank" rel="noopener">Official docs</a>
         <button type="button" class="theme-toggle" aria-label="Toggle theme">
           <span class="theme-toggle-icon theme-toggle-icon--dark" aria-hidden="true">☀</span>
           <span class="theme-toggle-icon theme-toggle-icon--light" aria-hidden="true">☾</span>
@@ -32,36 +32,36 @@
     </header>
 
     <div class="layout">
-      <aside class="sidebar" aria-label="Índice">
-        <h2>Introdução</h2>
+      <aside class="sidebar" aria-label="Table of contents">
+        <h2>Introduction</h2>
         <ul>
-          <li><a href="#o-que-e">O que é Appium</a></li>
-          <li><a href="#por-que-wdio">Por que WebdriverIO</a></li>
-          <li><a href="#pre-requisitos">Pré-requisitos</a></li>
-          <li><a href="#ambiente-so">Ambiente por SO</a></li>
-          <li><a href="#instalacao">Instalação</a></li>
-          <li><a href="#url-mapping">URL mapping mobile</a></li>
-          <li><a href="#estrutura">Estrutura do projeto</a></li>
-          <li><a href="#config">Configuração WDIO</a></li>
-          <li><a href="#primeiro-teste">Primeiro teste</a></li>
+          <li><a href="#what-is">What is Appium</a></li>
+          <li><a href="#why-wdio">Why WebdriverIO</a></li>
+          <li><a href="#prerequisites">Prerequisites</a></li>
+          <li><a href="#platform-setup">Platform setup</a></li>
+          <li><a href="#installation">Installation</a></li>
+          <li><a href="#url-mapping">Mobile URL mapping</a></li>
+          <li><a href="#structure">Project structure</a></li>
+          <li><a href="#config">WDIO configuration</a></li>
+          <li><a href="#first-test">First test</a></li>
         </ul>
-        <h2>Estrutura de testes</h2>
+        <h2>Test structure</h2>
         <ul>
           <li><a href="#hooks">beforeEach vs before</a></li>
-          <li><a href="#selectors-config">Helpers centralizados</a></li>
+          <li><a href="#selectors-config">Centralized helpers</a></li>
           <li><a href="#auth-cache">Auth cache</a></li>
         </ul>
-        <h2>Comandos WDIO</h2>
+        <h2>WDIO commands</h2>
         <ul>
-          <li><a href="#browser-commands">Comandos browser</a></li>
-          <li><a href="#interacoes">Interações</a></li>
+          <li><a href="#browser-commands">Browser commands</a></li>
+          <li><a href="#interactions">Interactions</a></li>
           <li><a href="#assertions">Assertions</a></li>
-          <li><a href="#selectors">Helpers de seletores</a></li>
-          <li><a href="#waits">Helpers de waits</a></li>
+          <li><a href="#selectors">Selector helpers</a></li>
+          <li><a href="#waits">Wait helpers</a></li>
         </ul>
         <h2>Appium mobile</h2>
         <ul>
-          <li><a href="#gestures">Gestos</a></li>
+          <li><a href="#gestures">Gestures</a></li>
           <li><a href="#device">Device capabilities</a></li>
           <li><a href="#contexts">Context switching</a></li>
           <li><a href="#locators">Locator strategies</a></li>
@@ -76,16 +76,16 @@
         <ul>
           <li><a href="#pom">Page Object Model</a></li>
           <li><a href="#login-page">LoginPage</a></li>
-          <li><a href="#page-map">Page Objects TestFlow</a></li>
+          <li><a href="#page-map">TestFlow Page Objects</a></li>
         </ul>
-        <h2>Encerramento</h2>
+        <h2>Wrap-up</h2>
         <ul>
-          <li><a href="#cobertura">Cobertura da suíte</a></li>
-          <li><a href="#executar">Como executar</a></li>
+          <li><a href="#coverage">Suite coverage</a></li>
+          <li><a href="#run-tests">How to run</a></li>
           <li><a href="#allure">Allure Report</a></li>
           <li><a href="#ci">CI GitHub Actions</a></li>
-          <li><a href="#boas-praticas">Boas práticas</a></li>
-          <li><a href="#proximos-passos">Próximos passos</a></li>
+          <li><a href="#best-practices">Best practices</a></li>
+          <li><a href="#next-steps">Next steps</a></li>
         </ul>
       </aside>
 
@@ -95,85 +95,85 @@
             <img src="assets/appium-logo.png" alt="Appium" width="64" height="64" />
             <span class="wordmark">Appium</span>
           </div>
-          <h1>Appium 2 + WebdriverIO — Guia passo a passo</h1>
+          <h1>Appium 2 + WebdriverIO — Step-by-step guide</h1>
           <p class="subtitle">
-            Do zero à referência completa: instalação mobile, gestos, contexts, Page Objects,
-            API testing, visual baselines e todos os comandos apresentados nos slides.
+            From zero to full reference: mobile setup, gestures, contexts, Page Objects,
+            API testing, visual baselines, and every command from the slides.
           </p>
           <span class="badge">Mobile Web · Android · iOS · POM · testflow-appium</span>
         </header>
 
-        <section id="o-que-e">
-          <h2>O que é o Appium?</h2>
+        <section id="what-is">
+          <h2>What is Appium?</h2>
           <p>
-            O Appium é um framework <strong>open-source</strong> de automação mobile que usa o protocolo
-            <strong>WebDriver</strong> — funciona com apps nativos, híbridos e <strong>mobile web</strong>
-            (Chrome no Android, Safari no iOS).
+            Appium is an <strong>open-source</strong> mobile automation framework that uses the
+            <strong>WebDriver</strong> protocol — it works with native apps, hybrid apps, and
+            <strong>mobile web</strong> (Chrome on Android, Safari on iOS).
           </p>
           <ul>
-            <li><strong>Appium 2</strong> — arquitetura modular com drivers plugáveis</li>
+            <li><strong>Appium 2</strong> — modular architecture with pluggable drivers</li>
             <li>Drivers: <code>uiautomator2</code> (Android) · <code>xcuitest</code> (iOS)</li>
-            <li>Cliente neste projeto: <strong>WebdriverIO 9</strong> + Mocha + TypeScript</li>
-            <li>TestFlow via browser mobile — espelho dos suites Cypress, Playwright e PyTest</li>
-            <li>Screenshots em falha, Allure Report e baselines visuais</li>
+            <li>Client in this project: <strong>WebdriverIO 9</strong> + Mocha + TypeScript</li>
+            <li>TestFlow via mobile browser — mirror of Cypress, Playwright, and PyTest suites</li>
+            <li>Failure screenshots, Allure Report, and visual baselines</li>
           </ul>
           <div class="callout">
-            Este projeto usa <strong>mobile web</strong> — o Appium controla Chrome/Safari no emulador
-            ou dispositivo real, não um APK/IPA nativo. A mesma app TestFlow roda em
-            <code>http://10.0.2.2:5050</code> (Android) ou <code>http://127.0.0.1:5050</code> (iOS).
+            This project uses <strong>mobile web</strong> — Appium controls Chrome/Safari on an emulator
+            or real device, not a native APK/IPA. The same TestFlow app runs at
+            <code>http://10.0.2.2:5050</code> (Android) or <code>http://127.0.0.1:5050</code> (iOS).
           </div>
         </section>
 
-        <section id="por-que-wdio">
-          <h2>Por que WebdriverIO?</h2>
+        <section id="why-wdio">
+          <h2>Why WebdriverIO?</h2>
           <div class="feature-grid">
             <div class="feature-card">
-              <h4 class="card-heading"><img src="assets/logos/appium.svg" alt="" width="24" height="24" class="logo-color card-logo" aria-hidden="true" /> Integração Appium nativa</h4>
-              <p><code>@wdio/appium-service</code> sobe o servidor Appium automaticamente no runner.</p>
+              <h4 class="card-heading"><img src="assets/logos/appium.svg" alt="" width="24" height="24" class="logo-color card-logo" aria-hidden="true" /> Native Appium integration</h4>
+              <p><code>@wdio/appium-service</code> starts the Appium server automatically in the runner.</p>
             </div>
             <div class="feature-card">
               <h4 class="card-heading"><img src="assets/logos/webdriverio.svg" alt="" width="24" height="24" class="logo-color card-logo" aria-hidden="true" /> expect-webdriverio</h4>
-              <p>Assertions com auto-wait: <code>toBeDisplayed()</code>, <code>toHaveUrl()</code>, <code>toHaveText()</code>.</p>
+              <p>Auto-wait assertions: <code>toBeDisplayed()</code>, <code>toHaveUrl()</code>, <code>toHaveText()</code>.</p>
             </div>
             <div class="feature-card">
               <h4 class="card-heading"><img src="assets/logos/typescript.svg" alt="" width="24" height="24" class="logo-color card-logo" aria-hidden="true" /> TypeScript first</h4>
-              <p>Auto-compile via <code>ts-node</code> — tipos WDIO e Mocha integrados.</p>
+              <p>Auto-compile via <code>ts-node</code> — integrated WDIO and Mocha types.</p>
             </div>
             <div class="feature-card">
               <h4 class="card-heading"><img src="assets/logos/allure.svg" alt="" width="24" height="24" class="logo-color card-logo" aria-hidden="true" /> Allure + spec reporter</h4>
-              <p>Screenshots, URL e env vars anexados automaticamente em falha.</p>
+              <p>Screenshots, URL, and env vars attached automatically on failure.</p>
             </div>
           </div>
           <table class="compare-table compact">
             <thead>
-              <tr><th>Aspecto</th><th><img src="assets/logos/appium.svg" alt="" width="18" height="18" class="logo-color" aria-hidden="true" /> Appium + WDIO</th><th><img src="assets/logos/playwright.svg" alt="" width="18" height="18" class="logo-color" aria-hidden="true" /> Playwright (desktop)</th></tr>
+              <tr><th>Aspect</th><th><img src="assets/logos/appium.svg" alt="" width="18" height="18" class="logo-color" aria-hidden="true" /> Appium + WDIO</th><th><img src="assets/logos/playwright.svg" alt="" width="18" height="18" class="logo-color" aria-hidden="true" /> Playwright (desktop)</th></tr>
             </thead>
             <tbody>
-              <tr><td>Alvo</td><td><span class="logo-cell"><img src="assets/logos/googlechrome.svg" alt="" width="16" height="16" class="logo-color" aria-hidden="true" /> Chrome Android / <img src="assets/logos/safari.svg" alt="" width="16" height="16" class="logo-color" aria-hidden="true" /> Safari iOS</span></td><td><img src="assets/logos/playwright.svg" alt="" width="16" height="16" class="logo-color" aria-hidden="true" /> Chromium, Firefox, WebKit desktop</td></tr>
+              <tr><td>Target</td><td><span class="logo-cell"><img src="assets/logos/googlechrome.svg" alt="" width="16" height="16" class="logo-color" aria-hidden="true" /> Chrome Android / <img src="assets/logos/safari.svg" alt="" width="16" height="16" class="logo-color" aria-hidden="true" /> Safari iOS</span></td><td><img src="assets/logos/playwright.svg" alt="" width="16" height="16" class="logo-color" aria-hidden="true" /> Chromium, Firefox, WebKit desktop</td></tr>
               <tr><td>Runner</td><td><code>wdio run wdio.conf.ts</code></td><td><code>npx playwright test</code></td></tr>
               <tr><td>Locator</td><td><code>browser.$('[data-testid="…"]')</code></td><td><code>page.getByTestId('…')</code></td></tr>
-              <tr><td>Gestos</td><td><code>performActions</code>, swipe, long press</td><td>Mouse/keyboard (sem touch nativo)</td></tr>
+              <tr><td>Gestures</td><td><code>performActions</code>, swipe, long press</td><td>Mouse/keyboard (no native touch)</td></tr>
               <tr><td>Contexts</td><td>NATIVE_APP ↔ WEBVIEW</td><td>Frames / tabs</td></tr>
             </tbody>
           </table>
         </section>
 
-        <section id="pre-requisitos">
-          <h2>Pré-requisitos</h2>
+        <section id="prerequisites">
+          <h2>Prerequisites</h2>
           <div class="two-col">
             <div>
-              <h3>Ambiente geral</h3>
+              <h3>General environment</h3>
               <ul class="logo-list">
                 <li><img src="assets/logos/nodejs.svg" alt="" width="20" height="20" class="logo-color" aria-hidden="true" /><span><strong>Node.js</strong> 20+</span></li>
-                <li><img src="assets/logos/java.svg" alt="" width="20" height="20" class="logo-color" aria-hidden="true" /><span><strong>Java 17+</strong> (para <code>allure generate</code>)</span></li>
-                <li><img src="assets/logos/npm.svg" alt="" width="20" height="20" class="logo-color" aria-hidden="true" /><span><strong>npm</strong> (ou pnpm / yarn)</span></li>
-                <li><img src="assets/logos/testflow.svg" alt="" width="20" height="20" class="logo-color" aria-hidden="true" /><span>TestFlow na porta <code>5050</code></span></li>
+                <li><img src="assets/logos/java.svg" alt="" width="20" height="20" class="logo-color" aria-hidden="true" /><span><strong>Java 17+</strong> (for <code>allure generate</code>)</span></li>
+                <li><img src="assets/logos/npm.svg" alt="" width="20" height="20" class="logo-color" aria-hidden="true" /><span><strong>npm</strong> (or pnpm / yarn)</span></li>
+                <li><img src="assets/logos/testflow.svg" alt="" width="20" height="20" class="logo-color" aria-hidden="true" /><span>TestFlow on port <code>5050</code></span></li>
                 <li><img src="assets/logos/vscode.svg" alt="" width="20" height="20" class="logo-color" aria-hidden="true" /><span>Editor: VS Code / <img src="assets/logos/cursor.svg" alt="" width="16" height="16" class="logo-color" aria-hidden="true" /> Cursor</span></li>
               </ul>
               <h3 class="logo-heading"><img src="assets/logos/android.svg" alt="" width="22" height="22" class="logo-color" aria-hidden="true" /> Android</h3>
               <ul class="logo-list">
-                <li><img src="assets/logos/androidstudio.svg" alt="" width="20" height="20" class="logo-color" aria-hidden="true" /><span>Android SDK + emulator ou dispositivo</span></li>
-                <li><img src="assets/logos/googlechrome.svg" alt="" width="20" height="20" class="logo-color" aria-hidden="true" /><span>Chrome instalado no emulador</span></li>
+                <li><img src="assets/logos/androidstudio.svg" alt="" width="20" height="20" class="logo-color" aria-hidden="true" /><span>Android SDK + emulator or device</span></li>
+                <li><img src="assets/logos/googlechrome.svg" alt="" width="20" height="20" class="logo-color" aria-hidden="true" /><span>Chrome on the emulator</span></li>
                 <li><img src="assets/logos/appium.svg" alt="" width="20" height="20" class="logo-color" aria-hidden="true" /><span>Appium driver <code>uiautomator2</code></span></li>
               </ul>
               <h3 class="logo-heading"><img src="assets/logos/ios.svg" alt="" width="22" height="22" class="logo-color" aria-hidden="true" /> iOS (macOS only)</h3>
@@ -197,18 +197,18 @@
                 <div>openjdk 17.x</div>
                 <br />
                 <div><span class="prompt">$</span> docker run --rm -p 5050:5050 qaschool/testflow:latest</div>
-                <div class="comment"># app disponível em localhost:5050</div>
+                <div class="comment"># app available at localhost:5050</div>
               </div>
             </div>
           </div>
         </section>
 
-        <section id="ambiente-so">
-          <h2>Instalação do ambiente por SO</h2>
+        <section id="platform-setup">
+          <h2>Environment setup by platform</h2>
           <p>
-            Antes de clonar o repositório, instale <strong>Node.js 20+</strong>, <strong>Git</strong>,
-            <strong>Java 17+</strong> e <strong>Docker</strong> (TestFlow na porta <code>5050</code>).
-            Android e iOS têm requisitos adicionais por plataforma.
+            Before cloning the repository, install <strong>Node.js 20+</strong>, <strong>Git</strong>,
+            <strong>Java 17+</strong>, and <strong>Docker</strong> (TestFlow on port <code>5050</code>).
+            Android and iOS have additional platform-specific requirements.
           </p>
           <div class="tool-row">
             <span class="tool-chip"><img src="assets/logos/nodejs.svg" alt="" width="16" height="16" class="logo-color" aria-hidden="true" /> Node.js 20+</span>
@@ -227,12 +227,12 @@ brew install node@20 git openjdk@17
 brew link --overwrite node@20
 brew install --cask docker android-studio
 
-# iOS: Xcode da App Store
+# iOS: Xcode from App Store
 xcode-select --install
 node --version   # v20+
 java -version    # 17+</code></pre>
               <p><strong><img src="assets/logos/androidstudio.svg" alt="" width="16" height="16" class="logo-color" aria-hidden="true" /> Android:</strong> Android Studio → SDK Manager → API 34 emulator</p>
-              <p><strong><img src="assets/logos/xcode.svg" alt="" width="16" height="16" class="logo-color" aria-hidden="true" /> iOS:</strong> <code>npm run test:ios</code> requer Simulator</p>
+              <p><strong><img src="assets/logos/xcode.svg" alt="" width="16" height="16" class="logo-color" aria-hidden="true" /> iOS:</strong> <code>npm run test:ios</code> requires Simulator</p>
             </div>
             <div class="feature-card">
               <h4 class="logo-heading"><img src="assets/logos/windows.svg" alt="" width="24" height="24" class="logo-color" aria-hidden="true" /> Windows</h4>
@@ -243,8 +243,8 @@ winget install Microsoft.OpenJDK.17
 
 node --version
 java -version</code></pre>
-              <p><strong><img src="assets/logos/androidstudio.svg" alt="" width="16" height="16" class="logo-color" aria-hidden="true" /> Android:</strong> Android Studio + variáveis <code>ANDROID_HOME</code>, <code>JAVA_HOME</code>.</p>
-              <p>iOS não é suportado no Windows — use CI ou macOS para Safari.</p>
+              <p><strong><img src="assets/logos/androidstudio.svg" alt="" width="16" height="16" class="logo-color" aria-hidden="true" /> Android:</strong> Android Studio + <code>ANDROID_HOME</code>, <code>JAVA_HOME</code> env vars.</p>
+              <p>iOS is not supported on Windows — use CI or macOS for Safari.</p>
             </div>
             <div class="feature-card">
               <h4 class="logo-heading"><img src="assets/logos/linux.svg" alt="" width="24" height="24" class="logo-color" aria-hidden="true" /> Linux</h4>
@@ -255,74 +255,74 @@ sudo usermod -aG docker $USER
 
 node --version
 java -version</code></pre>
-              <p><strong><img src="assets/logos/android.svg" alt="" width="16" height="16" class="logo-color" aria-hidden="true" /> Android:</strong> Android SDK + KVM habilitado (CI usa <code>assets/logos/githubactions.svg</code> <code>android-emulator-runner</code>).</p>
-              <p>iOS requer macOS — não disponível em runners Linux.</p>
+              <p><strong><img src="assets/logos/android.svg" alt="" width="16" height="16" class="logo-color" aria-hidden="true" /> Android:</strong> Android SDK + KVM enabled (CI uses <img src="assets/logos/githubactions.svg" alt="" width="14" height="14" class="logo-color" style="vertical-align:-2px" aria-hidden="true" /> <code>android-emulator-runner</code>).</p>
+              <p>iOS requires macOS — not available on Linux runners.</p>
             </div>
           </div>
 
-          <pre><code class="language-bash"># TestFlow — igual em macOS, Windows e Linux
+          <pre><code class="language-bash"># TestFlow — same on macOS, Windows, and Linux
 docker run --rm -p 5050:5050 qaschool/testflow:latest
 npm run check:testflow</code></pre>
         </section>
 
-        <section id="instalacao">
-          <h2>Instalação — testflow-appium</h2>
+        <section id="installation">
+          <h2>Installation — testflow-appium</h2>
           <ol class="steps">
             <li>
               <div>
-                <strong>Clone o repositório</strong><br />
+                <strong>Clone the repository</strong><br />
                 <code>git clone https://github.com/lflucasferreira/testflow-appium.git</code><br />
                 <code>cd testflow-appium</code>
               </div>
             </li>
             <li>
               <div>
-                <strong>Instale dependências</strong><br />
+                <strong>Install dependencies</strong><br />
                 <code>npm install</code>
               </div>
             </li>
             <li>
               <div>
-                <strong>Instale drivers Appium</strong><br />
+                <strong>Install Appium drivers</strong><br />
                 <code>npm run appium:drivers</code>
               </div>
             </li>
             <li>
               <div>
-                <strong>Configure variáveis de ambiente</strong><br />
+                <strong>Configure environment variables</strong><br />
                 <code>cp .env.example .env</code>
               </div>
             </li>
             <li>
               <div>
-                <strong>Valide o ambiente</strong><br />
+                <strong>Validate the environment</strong><br />
                 <code>npm run appium:doctor</code><br />
                 <code>npm run check:testflow</code>
               </div>
             </li>
             <li>
               <div>
-                <strong>Execute os testes</strong><br />
-                <code>npm run test:api</code> (sem emulador)<br />
-                <code>npm run test:android</code> (emulador Android)
+                <strong>Run tests</strong><br />
+                <code>npm run test:api</code> (no emulator)<br />
+                <code>npm run test:android</code> (Android emulator)
               </div>
             </li>
           </ol>
           <div class="callout">
-            O Appium 2 é instalado localmente via <code>npm install</code> — não é necessário
-            <code>npm install -g appium</code>. O serviço WDIO sobe o servidor automaticamente.
+            Appium 2 is installed locally via <code>npm install</code> — no need for
+            <code>npm install -g appium</code>. The WDIO service starts the server automatically.
           </div>
         </section>
 
         <section id="url-mapping">
           <h2>Mobile URL mapping</h2>
           <p>
-            Emuladores não alcançam <code>localhost</code> da mesma forma que browsers desktop.
-            O projeto resolve a base URL automaticamente em <code>support/config.ts</code>.
+            Emulators cannot reach <code>localhost</code> the same way desktop browsers do.
+            The project resolves the base URL automatically in <code>support/config.ts</code>.
           </p>
           <table class="compare-table compact">
             <thead>
-              <tr><th>Plataforma</th><th>URL padrão</th><th>Override</th></tr>
+              <tr><th>Platform</th><th>Default URL</th><th>Override</th></tr>
             </thead>
             <tbody>
               <tr><td>Android emulator</td><td><code>http://10.0.2.2:5050</code></td><td><code>ANDROID_BASE_URL</code></td></tr>
@@ -344,7 +344,7 @@ export function appPath(path: string): string {
 }</code></pre>
           <table class="compare-table compact">
             <thead>
-              <tr><th>Campo</th><th>Padrão</th><th>Override</th></tr>
+              <tr><th>Field</th><th>Default</th><th>Override</th></tr>
             </thead>
             <tbody>
               <tr><td>Email</td><td><code>demo@automation.io</code></td><td><code>DEMO_EMAIL</code></td></tr>
@@ -353,19 +353,19 @@ export function appPath(path: string): string {
           </table>
         </section>
 
-        <section id="estrutura">
-          <h2>Estrutura do projeto</h2>
+        <section id="structure">
+          <h2>Project structure</h2>
           <div class="two-col">
             <pre><code class="language-plaintext">testflow-appium/
 ├── wdio.conf.ts              # Android capabilities
 ├── wdio.ios.conf.ts          # iOS capabilities
-├── wdio.shared.conf.ts       # Config compartilhada
+├── wdio.shared.conf.ts       # Shared config
 ├── wdio.api.conf.ts          # REST-only runner
 ├── fixtures/                 # credentials.json, etc.
 ├── pages/                    # Page Object Model (11 classes)
 ├── support/
 │   ├── auth.ts               # API login + sessionStorage
-│   ├── config.ts             # Base URL por plataforma
+│   ├── config.ts             # Base URL per platform
 │   ├── navigation.ts         # openAppPath, seedSession
 │   ├── selectors.ts          # data-testid helpers
 │   ├── api/                  # Axios client
@@ -378,19 +378,19 @@ export function appPath(path: string): string {
 │   ├── gestures/ device/ contexts/ locators/
 └── package.json</code></pre>
             <ul>
-              <li><code>pages/</code> — seletores, ações e assertions por tela</li>
-              <li><code>support/auth.ts</code> — login via API ou UI + injeção sessionStorage</li>
+              <li><code>pages/</code> — selectors, actions, and assertions per screen</li>
+              <li><code>support/auth.ts</code> — login via API or UI + sessionStorage injection</li>
               <li><code>support/helpers/gestures.ts</code> — swipe, long press, contexts</li>
               <li><code>tests/*.spec.ts</code> — 17 specs · mobile web + API</li>
-              <li><code>data-testid</code> — mesma convenção do testflow-cypress/playwright</li>
+              <li><code>data-testid</code> — same convention as testflow-cypress/playwright</li>
             </ul>
           </div>
         </section>
 
         <section id="config">
-          <h2>Configuração — WDIO</h2>
+          <h2>Configuration — WDIO</h2>
 
-          <h3>wdio.shared.conf.ts — base compartilhada</h3>
+          <h3>wdio.shared.conf.ts — shared base</h3>
           <pre><code class="language-typescript">export const sharedConfig = {
   runner: 'local',
   specs: ['./tests/**/*.spec.ts'],
@@ -403,7 +403,7 @@ export function appPath(path: string): string {
   mochaOpts: { ui: 'bdd', timeout: process.env.CI ? 120000 : 90000 },
   afterTest: async (_test, _ctx, result) => {
     if (!result.passed) {
-      // screenshot + URL anexados ao Allure
+      // screenshot + URL attached to Allure
     }
   },
 }</code></pre>
@@ -439,13 +439,13 @@ export const config = { ...sharedConfig, capabilities: [androidCaps] }</code></p
 export const config = { ...sharedConfig, capabilities: [iosCaps] }</code></pre>
 
           <div class="callout">
-            API specs rodam com <strong>Mocha direto</strong> (<code>npm run test:api</code>) — sem Appium.
-            O arquivo <code>wdio.api.conf.ts</code> existe para runs WDIO-only de API se necessário.
+            API specs run with <strong>Mocha directly</strong> (<code>npm run test:api</code>) — no Appium needed.
+            The <code>wdio.api.conf.ts</code> file exists for WDIO-only API runs if required.
           </div>
         </section>
 
-        <section id="primeiro-teste">
-          <h2>Seu primeiro teste</h2>
+        <section id="first-test">
+          <h2>Your first test</h2>
           <pre><code class="language-typescript">// tests/auth/login.spec.ts
 import { LoginPage } from '../../pages/LoginPage'
 import { DEMO_EMAIL, DEMO_PASSWORD } from '../../support/config'
@@ -463,7 +463,7 @@ describe('Authentication @regression', () => {
   })
 })</code></pre>
           <p>
-            Convenção: <code>data-testid="login-email"</code> →
+            Convention: <code>data-testid="login-email"</code> →
             <code>browser.$('[data-testid="login-email"]')</code> via <code>support/selectors.ts</code>
           </p>
         </section>
@@ -471,7 +471,7 @@ describe('Authentication @regression', () => {
         <section id="hooks">
           <h2>beforeEach vs before</h2>
           <div class="two-col">
-            <pre><code class="language-typescript">// beforeEach — estado fresco por teste (Mocha)
+            <pre><code class="language-typescript">// beforeEach — fresh state per test (Mocha)
 describe('Team @regression', () => {
   beforeEach(async () => {
     await loginViaApi()
@@ -479,10 +479,10 @@ describe('Team @regression', () => {
   })
 
   it('filters rows by member name', async () => {
-    // cada it() começa autenticado no dashboard/team
+    // each it() starts authenticated on team page
   })
 })</code></pre>
-            <pre><code class="language-typescript">// before — token API compartilhado (smoke data-driven)
+            <pre><code class="language-typescript">// before — shared API token (data-driven smoke)
 describe('Smoke — page navigation @smoke', () => {
   let authToken: string
 
@@ -499,54 +499,54 @@ describe('Smoke — page navigation @smoke', () => {
 })</code></pre>
           </div>
           <p>
-            <code>before</code> evita N logins idênticos no smoke;
-            <code>beforeEach</code> isola estado de UI entre cenários de feature.
+            <code>before</code> avoids N identical logins in smoke;
+            <code>beforeEach</code> isolates UI state between feature scenarios.
           </p>
         </section>
 
         <section id="browser-commands">
-          <h2>Comandos browser — WebdriverIO</h2>
-          <p>API global <code>browser</code> usada na suíte TestFlow mobile web.</p>
+          <h2>Browser commands — WebdriverIO</h2>
+          <p>Global <code>browser</code> API used in the TestFlow mobile web suite.</p>
           <table class="compare-table compact">
             <thead>
-              <tr><th>Comando</th><th>Uso no TestFlow</th></tr>
+              <tr><th>Command</th><th>Usage in TestFlow</th></tr>
             </thead>
             <tbody>
-              <tr><td><code>browser.url(url)</code></td><td>Navegar para login, dashboard, team…</td></tr>
-              <tr><td><code>browser.$(selector)</code></td><td>Elemento único por CSS / data-testid</td></tr>
-              <tr><td><code>browser.$$(selector)</code></td><td>Coleção de elementos</td></tr>
-              <tr><td><code>browser.getUrl()</code></td><td>Validar redirect pós-login</td></tr>
-              <tr><td><code>browser.getTitle()</code></td><td>Smoke — título da página</td></tr>
+              <tr><td><code>browser.url(url)</code></td><td>Navigate to login, dashboard, team…</td></tr>
+              <tr><td><code>browser.$(selector)</code></td><td>Single element by CSS / data-testid</td></tr>
+              <tr><td><code>browser.$$(selector)</code></td><td>Element collection</td></tr>
+              <tr><td><code>browser.getUrl()</code></td><td>Validate redirect after login</td></tr>
+              <tr><td><code>browser.getTitle()</code></td><td>Smoke — page title</td></tr>
               <tr><td><code>browser.execute(fn)</code></td><td>sessionStorage, DOM queries, userAgent</td></tr>
-              <tr><td><code>browser.waitUntil(fn)</code></td><td>Aguardar readyState, URL, texto</td></tr>
-              <tr><td><code>browser.takeScreenshot()</code></td><td>Base64 para Allure em falha</td></tr>
-              <tr><td><code>browser.saveScreenshot(path)</code></td><td>Salvar PNG em disco</td></tr>
-              <tr><td><code>browser.getWindowSize()</code></td><td>Calcular coordenadas de swipe</td></tr>
+              <tr><td><code>browser.waitUntil(fn)</code></td><td>Wait for readyState, URL, text</td></tr>
+              <tr><td><code>browser.takeScreenshot()</code></td><td>Base64 for Allure on failure</td></tr>
+              <tr><td><code>browser.saveScreenshot(path)</code></td><td>Save PNG to disk</td></tr>
+              <tr><td><code>browser.getWindowSize()</code></td><td>Calculate swipe coordinates</td></tr>
               <tr><td><code>browser.performActions([…])</code></td><td>Touch: swipe, long press</td></tr>
-              <tr><td><code>browser.getContexts()</code></td><td>Listar NATIVE_APP / WEBVIEW</td></tr>
-              <tr><td><code>browser.switchContext(ctx)</code></td><td>Alternar para WEBVIEW</td></tr>
+              <tr><td><code>browser.getContexts()</code></td><td>List NATIVE_APP / WEBVIEW</td></tr>
+              <tr><td><code>browser.switchContext(ctx)</code></td><td>Switch to WEBVIEW</td></tr>
               <tr><td><code>browser.setOrientation(…)</code></td><td>Portrait / landscape</td></tr>
-              <tr><td><code>browser.hideKeyboard()</code></td><td>Fechar teclado software Android</td></tr>
+              <tr><td><code>browser.hideKeyboard()</code></td><td>Close Android software keyboard</td></tr>
             </tbody>
           </table>
         </section>
 
-        <section id="interacoes">
-          <h2>Interações com elementos</h2>
+        <section id="interactions">
+          <h2>Element interactions</h2>
           <table class="compare-table compact">
             <thead>
-              <tr><th>Ação</th><th>Exemplo TestFlow</th></tr>
+              <tr><th>Action</th><th>TestFlow example</th></tr>
             </thead>
             <tbody>
-              <tr><td><code>.click()</code></td><td>Submit login, sidebar nav, modais</td></tr>
-              <tr><td><code>.setValue(text)</code></td><td>Email, senha, busca na tabela</td></tr>
-              <tr><td><code>.clearValue()</code></td><td>Limpar campo antes de novo valor</td></tr>
-              <tr><td><code>.getText()</code></td><td>Mensagens de erro, KPI labels</td></tr>
-              <tr><td><code>.getAttribute(name)</code></td><td><code>type=password</code>, classe <code>active</code></td></tr>
-              <tr><td><code>.isDisplayed()</code></td><td>Verificar visibilidade condicional</td></tr>
-              <tr><td><code>.waitForDisplayed()</code></td><td>Explicit wait antes de interagir</td></tr>
-              <tr><td><code>.waitForEnabled()</code></td><td>Campo habilitado antes de fill</td></tr>
-              <tr><td><code>clickTestId('nav-team')</code></td><td>Helper — click com wait embutido</td></tr>
+              <tr><td><code>.click()</code></td><td>Login submit, sidebar nav, modals</td></tr>
+              <tr><td><code>.setValue(text)</code></td><td>Email, password, table search</td></tr>
+              <tr><td><code>.clearValue()</code></td><td>Clear field before new value</td></tr>
+              <tr><td><code>.getText()</code></td><td>Error messages, KPI labels</td></tr>
+              <tr><td><code>.getAttribute(name)</code></td><td><code>type=password</code>, <code>active</code> class</td></tr>
+              <tr><td><code>.isDisplayed()</code></td><td>Conditional visibility check</td></tr>
+              <tr><td><code>.waitForDisplayed()</code></td><td>Explicit wait before interacting</td></tr>
+              <tr><td><code>.waitForEnabled()</code></td><td>Field enabled before fill</td></tr>
+              <tr><td><code>clickTestId('nav-team')</code></td><td>Helper — click with built-in wait</td></tr>
               <tr><td><code>fillTestId('login-email', email)</code></td><td>Helper — click + clear + setValue</td></tr>
             </tbody>
           </table>
@@ -554,21 +554,21 @@ describe('Smoke — page navigation @smoke', () => {
 
         <section id="assertions">
           <h2>Assertions — expect-webdriverio</h2>
-          <p>Importado globalmente via <code>@wdio/globals</code> — auto-wait antes de avaliar.</p>
+          <p>Imported globally via <code>@wdio/globals</code> — auto-waits before evaluating.</p>
           <table class="compare-table compact">
             <thead>
-              <tr><th>Assertion</th><th>Exemplo</th></tr>
+              <tr><th>Assertion</th><th>Example</th></tr>
             </thead>
             <tbody>
               <tr><td><code>toBeDisplayed()</code></td><td>Page root, form fields, KPI cards</td></tr>
-              <tr><td><code>toBeEnabled()</code></td><td>Submit button após keyboard hide</td></tr>
-              <tr><td><code>toHaveUrl(…)</code></td><td>Redirect pós-login, logout → index</td></tr>
-              <tr><td><code>toHaveText(…)</code></td><td>Mensagem de erro no login</td></tr>
+              <tr><td><code>toBeEnabled()</code></td><td>Submit button after keyboard hide</td></tr>
+              <tr><td><code>toHaveUrl(…)</code></td><td>Redirect after login, logout → index</td></tr>
+              <tr><td><code>toHaveText(…)</code></td><td>Login error message</td></tr>
               <tr><td><code>toHaveAttribute(…)</code></td><td><code>type="password"</code></td></tr>
-              <tr><td><code>toHaveValue(…)</code></td><td>Campo settings com valor esperado</td></tr>
-              <tr><td><code>expect(browser).toHaveUrl(…)</code></td><td>Assertions no objeto browser</td></tr>
-              <tr><td><code>expect(string).toContain(…)</code></td><td>Título da página no smoke</td></tr>
-              <tr><td><code>assert.strictEqual(status, HTTP.OK)</code></td><td>Contratos API com Node assert</td></tr>
+              <tr><td><code>toHaveValue(…)</code></td><td>Settings field with expected value</td></tr>
+              <tr><td><code>expect(browser).toHaveUrl(…)</code></td><td>Assertions on browser object</td></tr>
+              <tr><td><code>expect(string).toContain(…)</code></td><td>Page title in smoke</td></tr>
+              <tr><td><code>assert.strictEqual(status, HTTP.OK)</code></td><td>API contracts with Node assert</td></tr>
             </tbody>
           </table>
           <pre><code class="language-typescript">// pages/LoginPage.ts
@@ -584,7 +584,7 @@ async shouldShowError(text: string) {
         </section>
 
         <section id="selectors">
-          <h2>Helpers de seletores — support/selectors.ts</h2>
+          <h2>Selector helpers — support/selectors.ts</h2>
           <pre><code class="language-typescript">export const byTestId = (id: string) => `[data-testid="${id}"]`
 
 export async function $(testId: string) {
@@ -607,13 +607,13 @@ export async function fillTestId(testId: string, value: string) { … }
 export async function getTextTestId(testId: string): Promise&lt;string&gt; { … }
 export async function isDisplayedTestId(testId: string): Promise&lt;boolean&gt; { … }</code></pre>
           <div class="callout">
-            Timeout padrão: <strong>15s</strong> local · <strong>45s</strong> no CI (<code>process.env.CI</code>).
-            Page Objects usam <code>BasePage.testId()</code> que delega para <code>$(id)</code>.
+            Default timeout: <strong>15s</strong> local · <strong>45s</strong> in CI (<code>process.env.CI</code>).
+            Page Objects use <code>BasePage.testId()</code> which delegates to <code>$(id)</code>.
           </div>
         </section>
 
         <section id="selectors-config">
-          <h2>Helpers centralizados — selectors &amp; config</h2>
+          <h2>Centralized helpers — selectors &amp; config</h2>
           <div class="two-col">
             <pre><code class="language-typescript">// support/selectors.ts
 export const byTestId = (id: string) =&gt;
@@ -630,28 +630,28 @@ export async function fillTestId(testId: string, value: string) {
   await el.setValue(value)
 }</code></pre>
             <ul>
-              <li><code>byTestId()</code> — seletor único, sem strings espalhadas</li>
+              <li><code>byTestId()</code> — single selector, no scattered strings</li>
               <li><code>waitForTestId</code> — explicit wait + displayed</li>
-              <li><code>clickTestId</code> / <code>fillTestId</code> — ações com wait embutido</li>
-              <li><code>getBaseUrl()</code> em <code>support/config.ts</code> — loopback por plataforma</li>
-              <li><code>appPath(path)</code> — URL absoluta para <code>browser.url()</code></li>
+              <li><code>clickTestId</code> / <code>fillTestId</code> — actions with built-in wait</li>
+              <li><code>getBaseUrl()</code> in <code>support/config.ts</code> — loopback per platform</li>
+              <li><code>appPath(path)</code> — absolute URL for <code>browser.url()</code></li>
             </ul>
           </div>
         </section>
 
         <section id="waits">
-          <h2>Helpers de waits — support/helpers/waits.ts</h2>
+          <h2>Wait helpers — support/helpers/waits.ts</h2>
           <table class="compare-table compact">
             <thead>
-              <tr><th>Helper</th><th>Uso</th></tr>
+              <tr><th>Helper</th><th>Usage</th></tr>
             </thead>
             <tbody>
-              <tr><td><code>waitForUrl(pattern)</code></td><td>Aguardar URL com RegExp</td></tr>
-              <tr><td><code>waitForText(testId, text)</code></td><td>Aguardar texto em elemento</td></tr>
-              <tr><td><code>pollUntil(fn, predicate)</code></td><td>Polling genérico com intervalo</td></tr>
+              <tr><td><code>waitForUrl(pattern)</code></td><td>Wait for URL matching RegExp</td></tr>
+              <tr><td><code>waitForText(testId, text)</code></td><td>Wait for text in element</td></tr>
+              <tr><td><code>pollUntil(fn, predicate)</code></td><td>Generic polling with interval</td></tr>
             </tbody>
           </table>
-          <pre><code class="language-typescript">// support/navigation.ts — wait embutido no openAppPath
+          <pre><code class="language-typescript">// support/navigation.ts — wait built into openAppPath
 await browser.waitUntil(
   async () => {
     const state = await browser.execute(() => document.readyState)
@@ -662,22 +662,22 @@ await browser.waitUntil(
         </section>
 
         <section id="gestures">
-          <h2>Gestos — support/helpers/gestures.ts</h2>
-          <p>Touch gestures via W3C <code>performActions</code> — usados em <code>tests/gestures/gestures.spec.ts</code>.</p>
+          <h2>Gestures — support/helpers/gestures.ts</h2>
+          <p>Touch gestures via W3C <code>performActions</code> — used in <code>tests/gestures/gestures.spec.ts</code>.</p>
           <table class="compare-table compact">
             <thead>
-              <tr><th>Função</th><th>Descrição</th><th>Parâmetros</th></tr>
+              <tr><th>Function</th><th>Description</th><th>Parameters</th></tr>
             </thead>
             <tbody>
-              <tr><td><code>swipeUp()</code></td><td>Scroll para cima (75% → 25% da tela)</td><td><code>percent</code>, <code>speed</code></td></tr>
-              <tr><td><code>swipeDown()</code></td><td>Scroll para baixo (25% → 75%)</td><td><code>percent</code>, <code>speed</code></td></tr>
-              <tr><td><code>longPress(el)</code></td><td>Pressionar elemento por N ms</td><td><code>durationMs</code> (default 1500)</td></tr>
-              <tr><td><code>scrollIntoView(el)</code></td><td><code>scrollIntoView({ block: 'center' })</code></td><td>Elemento WebdriverIO</td></tr>
-              <tr><td><code>hideKeyboardIfShown()</code></td><td>Fecha teclado se visível</td><td>—</td></tr>
-              <tr><td><code>setOrientation(…)</code></td><td><code>'PORTRAIT'</code> ou <code>'LANDSCAPE'</code></td><td>—</td></tr>
-              <tr><td><code>getCurrentContext()</code></td><td>Contexto ativo</td><td>—</td></tr>
-              <tr><td><code>listContexts()</code></td><td>Array de contexts disponíveis</td><td>—</td></tr>
-              <tr><td><code>switchToWebContext()</code></td><td>Alterna para WEBVIEW</td><td>—</td></tr>
+              <tr><td><code>swipeUp()</code></td><td>Scroll up (75% → 25% of screen)</td><td><code>percent</code>, <code>speed</code></td></tr>
+              <tr><td><code>swipeDown()</code></td><td>Scroll down (25% → 75%)</td><td><code>percent</code>, <code>speed</code></td></tr>
+              <tr><td><code>longPress(el)</code></td><td>Press element for N ms</td><td><code>durationMs</code> (default 1500)</td></tr>
+              <tr><td><code>scrollIntoView(el)</code></td><td><code>scrollIntoView({ block: 'center' })</code></td><td>WebdriverIO element</td></tr>
+              <tr><td><code>hideKeyboardIfShown()</code></td><td>Close keyboard if visible</td><td>—</td></tr>
+              <tr><td><code>setOrientation(…)</code></td><td><code>'PORTRAIT'</code> or <code>'LANDSCAPE'</code></td><td>—</td></tr>
+              <tr><td><code>getCurrentContext()</code></td><td>Active context</td><td>—</td></tr>
+              <tr><td><code>listContexts()</code></td><td>Array of available contexts</td><td>—</td></tr>
+              <tr><td><code>switchToWebContext()</code></td><td>Switch to WEBVIEW</td><td>—</td></tr>
             </tbody>
           </table>
           <pre><code class="language-typescript">// tests/gestures/gestures.spec.ts
@@ -700,16 +700,16 @@ it('long press on KPI card does not crash session', async () => {
           <h2>Device capabilities — tests/device/device.spec.ts</h2>
           <div class="feature-grid">
             <div class="feature-card">
-              <h4 class="card-heading"><img src="assets/logos/android.svg" alt="" width="24" height="24" class="logo-color card-logo" aria-hidden="true" /> Teclado software</h4>
-              <p><code>hideKeyboardIfShown()</code> após preencher campos de login.</p>
+              <h4 class="card-heading"><img src="assets/logos/android.svg" alt="" width="24" height="24" class="logo-color card-logo" aria-hidden="true" /> Software keyboard</h4>
+              <p><code>hideKeyboardIfShown()</code> after filling login fields.</p>
             </div>
             <div class="feature-card">
-              <h4 class="card-heading"><img src="assets/logos/android.svg" alt="" width="24" height="24" class="logo-color card-logo" aria-hidden="true" /> Orientação</h4>
-              <p><code>setOrientation('PORTRAIT'/'LANDSCAPE')</code> — campos visíveis em ambos.</p>
+              <h4 class="card-heading"><img src="assets/logos/android.svg" alt="" width="24" height="24" class="logo-color card-logo" aria-hidden="true" /> Orientation</h4>
+              <p><code>setOrientation('PORTRAIT'/'LANDSCAPE')</code> — fields visible in both.</p>
             </div>
             <div class="feature-card">
               <h4 class="card-heading"><img src="assets/logos/allure.svg" alt="" width="24" height="24" class="logo-color card-logo" aria-hidden="true" /> Screenshot</h4>
-              <p><code>browser.saveScreenshot(path)</code> sob demanda.</p>
+              <p><code>browser.saveScreenshot(path)</code> on demand.</p>
             </div>
             <div class="feature-card">
               <h4 class="card-heading"><img src="assets/logos/appium.svg" alt="" width="24" height="24" class="logo-color card-logo" aria-hidden="true" /> Metadata</h4>
@@ -734,8 +734,8 @@ it('supports portrait and landscape orientation', async () => {
         <section id="contexts">
           <h2>Context switching — tests/contexts/webview.spec.ts</h2>
           <p>
-            Em apps híbridos, o Appium expõe múltiplos <strong>contexts</strong>:
-            <code>NATIVE_APP</code> e <code>WEBVIEW_*</code>. Mobile web roda predominantemente no WEBVIEW.
+            In hybrid apps, Appium exposes multiple <strong>contexts</strong>:
+            <code>NATIVE_APP</code> and <code>WEBVIEW_*</code>. Mobile web runs predominantly in WEBVIEW.
           </p>
           <pre><code class="language-typescript">it('lists available contexts on mobile web', async () => {
   const contexts = await listContexts()
@@ -756,25 +756,25 @@ it('executes DOM queries inside web context', async () => {
           <h2>Locator strategies — tests/locators/strategies.spec.ts</h2>
           <table class="compare-table compact">
             <thead>
-              <tr><th>Estratégia</th><th>Exemplo</th><th>Quando usar</th></tr>
+              <tr><th>Strategy</th><th>Example</th><th>When to use</th></tr>
             </thead>
             <tbody>
-              <tr><td>CSS / data-testid</td><td><code>browser.$(byTestId('login-email'))</code></td><td><strong>Padrão</strong> — estável, convenção TestFlow</td></tr>
-              <tr><td>XPath</td><td><code>browser.$('//input[@data-testid="login-email"]')</code></td><td>Fallback quando CSS não basta</td></tr>
-              <tr><td>Text / accessible name</td><td><code>button[data-testid="login-submit"]</code></td><td>Botões com label visível</td></tr>
-              <tr><td>Chained selectors</td><td>Form root + child testId</td><td>Escopo dentro de container</td></tr>
-              <tr><td>Explicit waits</td><td><code>el.waitForDisplayed()</code> + <code>waitForEnabled()</code></td><td>Elementos lentos / animados</td></tr>
+              <tr><td>CSS / data-testid</td><td><code>browser.$(byTestId('login-email'))</code></td><td><strong>Default</strong> — stable, TestFlow convention</td></tr>
+              <tr><td>XPath</td><td><code>browser.$('//input[@data-testid="login-email"]')</code></td><td>Fallback when CSS is insufficient</td></tr>
+              <tr><td>Text / accessible name</td><td><code>button[data-testid="login-submit"]</code></td><td>Buttons with visible label</td></tr>
+              <tr><td>Chained selectors</td><td>Form root + child testId</td><td>Scope within container</td></tr>
+              <tr><td>Explicit waits</td><td><code>el.waitForDisplayed()</code> + <code>waitForEnabled()</code></td><td>Slow / animated elements</td></tr>
             </tbody>
           </table>
           <div class="callout">
-            Page Objects em <code>pages/</code> são a fonte única de locators — nunca espalhe seletores nos specs.
+            Page Objects in <code>pages/</code> are the single source of locators — never scatter selectors in specs.
           </div>
         </section>
 
         <section id="auth-cache">
           <h2>Auth cache — UI vs API</h2>
           <div class="two-col">
-            <pre><code class="language-typescript">// Login UI — specs de auth
+            <pre><code class="language-typescript">// UI login — auth specs
 beforeEach(async () => {
   await login().visit()
 })
@@ -783,21 +783,21 @@ it('logs in via UI', async () => {
   await login().loginWith(DEMO_EMAIL, DEMO_PASSWORD)
   await login().shouldRedirectToDashboard()
 })</code></pre>
-            <pre><code class="language-typescript">// Login API + sessionStorage — specs de feature
+            <pre><code class="language-typescript">// API login + sessionStorage — feature specs
 beforeEach(async () => {
   await loginViaApi()
   await waitForTestId('page-dashboard')
 })
 
-// Smoke — token único no before()
+// Smoke — single token in before()
 before(async () => {
   authToken = (await fetchAuthToken()).token
 })
 await visitWithToken('/web/team.html', authToken)</code></pre>
           </div>
           <p>
-            Equivalente ao <code>cy.session</code> / <code>globalSetup</code> do Playwright —
-            login pesado uma vez, reutilizado em N specs via <code>visitWithToken</code>.
+            Equivalent to Playwright's <code>globalSetup</code> / Cypress <code>cy.session</code> —
+            heavy login once, reused across N specs via <code>visitWithToken</code>.
           </p>
         </section>
 
@@ -805,17 +805,17 @@ await visitWithToken('/web/team.html', authToken)</code></pre>
           <h2>Auth helpers — support/auth.ts</h2>
           <table class="compare-table compact">
             <thead>
-              <tr><th>Função</th><th>Descrição</th></tr>
+              <tr><th>Function</th><th>Description</th></tr>
             </thead>
             <tbody>
               <tr><td><code>fetchAuthToken()</code></td><td>POST <code>/api/auth/login</code> via Axios</td></tr>
               <tr><td><code>injectAuthSession(session)</code></td><td><code>sessionStorage.setItem('sandbox-auth', …)</code></td></tr>
               <tr><td><code>loginViaApi()</code></td><td>API login + seed + goto dashboard</td></tr>
-              <tr><td><code>visitAuthenticated(path)</code></td><td>Navegar já autenticado para qualquer rota</td></tr>
-              <tr><td><code>loginViaUi()</code></td><td>Auth via formulário de login</td></tr>
-              <tr><td><code>visitWithToken(path, token)</code></td><td>Smoke — token do <code>before</code></td></tr>
+              <tr><td><code>visitAuthenticated(path)</code></td><td>Navigate authenticated to any route</td></tr>
+              <tr><td><code>loginViaUi()</code></td><td>Auth via login form</td></tr>
+              <tr><td><code>visitWithToken(path, token)</code></td><td>Smoke — token from <code>before</code></td></tr>
               <tr><td><code>logoutViaUi()</code></td><td>Click <code>nav-logout</code></td></tr>
-              <tr><td><code>getSessionAuth()</code></td><td>Ler <code>sandbox-auth</code> do sessionStorage</td></tr>
+              <tr><td><code>getSessionAuth()</code></td><td>Read <code>sandbox-auth</code> from sessionStorage</td></tr>
             </tbody>
           </table>
           <pre><code class="language-typescript">export async function loginViaApi(): Promise&lt;AuthSession&gt; {
@@ -826,14 +826,14 @@ await visitWithToken('/web/team.html', authToken)</code></pre>
   return session
 }</code></pre>
           <p>
-            <code>seedSessionOnOrigin</code> abre <code>/web/index.html</code> primeiro para garantir
-            que o <code>sessionStorage</code> está no origin correto antes de injetar o token.
+            <code>seedSessionOnOrigin</code> opens <code>/web/index.html</code> first to ensure
+            <code>sessionStorage</code> is on the correct origin before injecting the token.
           </p>
         </section>
 
         <section id="api-testing">
           <h2>API testing — tests/api/auth.api.spec.ts</h2>
-          <p>Suite REST standalone com <strong>Mocha + Axios</strong> — sem emulador necessário.</p>
+          <p>Standalone REST suite with <strong>Mocha + Axios</strong> — no emulator required.</p>
           <pre><code class="language-typescript">import { apiClient, assert, validateSchema } from '../../support/api/client'
 import { HTTP } from '../../support/constants/httpStatus'
 
@@ -853,20 +853,20 @@ describe('API — health &amp; auth @api @smoke', () => {
 })</code></pre>
           <table class="compare-table compact">
             <thead>
-              <tr><th>Helper</th><th>Uso</th></tr>
+              <tr><th>Helper</th><th>Usage</th></tr>
             </thead>
             <tbody>
-              <tr><td><code>apiClient()</code></td><td>Axios singleton com <code>validateStatus: () => true</code></td></tr>
-              <tr><td><code>validateSchema(obj, schema)</code></td><td>Tipos da resposta REST</td></tr>
-              <tr><td><code>loginAndGetToken()</code></td><td>Token para requests autenticados</td></tr>
-              <tr><td><code>authenticatedRequest(config)</code></td><td>HTTP com Bearer header</td></tr>
+              <tr><td><code>apiClient()</code></td><td>Axios singleton with <code>validateStatus: () => true</code></td></tr>
+              <tr><td><code>validateSchema(obj, schema)</code></td><td>REST response types</td></tr>
+              <tr><td><code>loginAndGetToken()</code></td><td>Token for authenticated requests</td></tr>
+              <tr><td><code>authenticatedRequest(config)</code></td><td>HTTP with Bearer header</td></tr>
             </tbody>
           </table>
         </section>
 
         <section id="visual">
           <h2>Visual baselines — support/helpers/visual.ts</h2>
-          <p>Screenshots PNG comparados por tamanho de arquivo — usado em <code>tests/visual/visual.spec.ts</code>.</p>
+          <p>PNG screenshots compared by file size — used in <code>tests/visual/visual.spec.ts</code>.</p>
           <pre><code class="language-typescript">export async function saveBaseline(name: string): Promise&lt;string&gt; {
   const filePath = path.join('test-results/visual-baselines', `${name}.png`)
   await browser.saveScreenshot(filePath)
@@ -874,7 +874,7 @@ describe('API — health &amp; auth @api @smoke', () => {
 }
 
 export async function assertScreenshotMatches(name: string, maxMismatchPercent = 5) {
-  // Cria baseline na primeira execução; compara tamanho nas seguintes
+  // Creates baseline on first run; compares file size on subsequent runs
 }</code></pre>
           <pre><code class="language-typescript">// tests/visual/visual.spec.ts
 it('login screen baseline on mobile', async () => {
@@ -905,8 +905,8 @@ export class BasePage {
   }
 }</code></pre>
           <p>
-            Cada Page Object encapsula locators (<code>testId()</code>), ações fluentes
-            (<code>loginWith()</code>, <code>search()</code>) e assertions
+            Each Page Object encapsulates locators (<code>testId()</code>), fluent actions
+            (<code>loginWith()</code>, <code>search()</code>), and assertions
             (<code>shouldBeLoaded()</code>, <code>shouldShowError()</code>).
           </p>
           <div class="command-tags">
@@ -917,7 +917,7 @@ export class BasePage {
         </section>
 
         <section id="login-page">
-          <h2>LoginPage — exemplo completo</h2>
+          <h2>LoginPage — complete example</h2>
           <pre><code class="language-typescript">export class LoginPage extends BasePage {
   emailInput()    { return this.testId('login-email') }
   passwordInput() { return this.testId('login-password') }
@@ -942,10 +942,10 @@ export class BasePage {
         </section>
 
         <section id="page-map">
-          <h2>Page Objects TestFlow</h2>
+          <h2>TestFlow Page Objects</h2>
           <table class="compare-table compact">
             <thead>
-              <tr><th>Classe</th><th>Arquivo</th><th>Página TestFlow</th></tr>
+              <tr><th>Class</th><th>File</th><th>TestFlow page</th></tr>
             </thead>
             <tbody>
               <tr><td><code>LoginPage</code></td><td><code>pages/LoginPage.ts</code></td><td><code>/web/login.html</code></td></tr>
@@ -957,43 +957,43 @@ export class BasePage {
               <tr><td><code>ActivityPage</code></td><td><code>pages/ActivityPage.ts</code></td><td><code>/web/activity.html</code></td></tr>
               <tr><td><code>AdvancedPage</code></td><td><code>pages/AdvancedPage.ts</code></td><td><code>/web/advanced.html</code></td></tr>
               <tr><td><code>StatesPage</code></td><td><code>pages/StatesPage.ts</code></td><td><code>/web/states.html</code></td></tr>
-              <tr><td><code>ShellPage</code></td><td><code>pages/ShellPage.ts</code></td><td>App shell / navegação</td></tr>
-              <tr><td><code>BasePage</code></td><td><code>pages/BasePage.ts</code></td><td>Classe base compartilhada</td></tr>
+              <tr><td><code>ShellPage</code></td><td><code>pages/ShellPage.ts</code></td><td>App shell / navigation</td></tr>
+              <tr><td><code>BasePage</code></td><td><code>pages/BasePage.ts</code></td><td>Shared base class</td></tr>
             </tbody>
           </table>
         </section>
 
-        <section id="cobertura">
-          <h2>Cobertura da suíte</h2>
+        <section id="coverage">
+          <h2>Suite coverage</h2>
           <table class="compare-table compact">
             <thead>
-              <tr><th>Suite</th><th>Spec</th><th>Tags</th><th>O que cobre</th></tr>
+              <tr><th>Suite</th><th>Spec</th><th>Tags</th><th>What it covers</th></tr>
             </thead>
             <tbody>
-              <tr><td><code>smoke</code></td><td>navigation.spec.ts</td><td><code>@smoke</code> <code>@regression</code></td><td>Páginas, sidebar, logout</td></tr>
-              <tr><td><code>auth</code></td><td>login.spec.ts</td><td><code>@regression</code></td><td>Login UI, sessionStorage, erros</td></tr>
-              <tr><td><code>dashboard</code></td><td>dashboard.spec.ts</td><td><code>@regression</code></td><td>KPIs, activity, modal new run</td></tr>
-              <tr><td><code>team</code></td><td>team.spec.ts</td><td><code>@regression</code></td><td>Busca, filtros, paginação, invite</td></tr>
+              <tr><td><code>smoke</code></td><td>navigation.spec.ts</td><td><code>@smoke</code> <code>@regression</code></td><td>Pages, sidebar, logout</td></tr>
+              <tr><td><code>auth</code></td><td>login.spec.ts</td><td><code>@regression</code></td><td>Login UI, sessionStorage, errors</td></tr>
+              <tr><td><code>dashboard</code></td><td>dashboard.spec.ts</td><td><code>@regression</code></td><td>KPIs, activity, new run modal</td></tr>
+              <tr><td><code>team</code></td><td>team.spec.ts</td><td><code>@regression</code></td><td>Search, filters, pagination, invite</td></tr>
               <tr><td><code>settings</code></td><td>settings.spec.ts</td><td><code>@regression</code></td><td>Profile, notifications, security</td></tr>
               <tr><td><code>components</code></td><td>components.spec.ts</td><td><code>@regression</code></td><td>Buttons, modal, tabs, accordion</td></tr>
-              <tr><td><code>wizard</code></td><td>wizard.spec.ts</td><td><code>@regression</code></td><td>Multi-step, validação, review</td></tr>
+              <tr><td><code>wizard</code></td><td>wizard.spec.ts</td><td><code>@regression</code></td><td>Multi-step, validation, review</td></tr>
               <tr><td><code>activity</code></td><td>activity.spec.ts</td><td><code>@regression</code></td><td>Counter, pipeline, file drop</td></tr>
               <tr><td><code>advanced</code></td><td>advanced.spec.ts</td><td><code>@regression</code></td><td>Shadow DOM, iframe, mobile viewport</td></tr>
               <tr><td><code>states</code></td><td>states.spec.ts</td><td><code>@regression</code></td><td>Skeleton, empty, error, partial load</td></tr>
               <tr><td><code>layout</code></td><td>shell.spec.ts</td><td><code>@regression</code></td><td>Landmarks, nav, notifications, theme</td></tr>
-              <tr><td><code>visual</code></td><td>visual.spec.ts</td><td><code>@visual</code> <code>@regression</code></td><td>Screenshot baselines mobile</td></tr>
-              <tr><td><code>api</code></td><td>auth.api.spec.ts</td><td><code>@api</code> <code>@smoke</code></td><td>Health, login, users, erros HTTP</td></tr>
+              <tr><td><code>visual</code></td><td>visual.spec.ts</td><td><code>@visual</code> <code>@regression</code></td><td>Mobile screenshot baselines</td></tr>
+              <tr><td><code>api</code></td><td>auth.api.spec.ts</td><td><code>@api</code> <code>@smoke</code></td><td>Health, login, users, HTTP errors</td></tr>
               <tr><td><code>gestures</code></td><td>gestures.spec.ts</td><td><code>@appium</code> <code>@regression</code></td><td>Swipe, long press, scroll, tap nav</td></tr>
               <tr><td><code>device</code></td><td>device.spec.ts</td><td><code>@appium</code></td><td>Keyboard, orientation, screenshot, metadata</td></tr>
               <tr><td><code>contexts</code></td><td>webview.spec.ts</td><td><code>@appium</code></td><td>Context list, WEBVIEW switch, DOM queries</td></tr>
-              <tr><td><code>locators</code></td><td>strategies.spec.ts</td><td><code>@appium</code></td><td>CSS, XPath, waits explícitos</td></tr>
+              <tr><td><code>locators</code></td><td>strategies.spec.ts</td><td><code>@appium</code></td><td>CSS, XPath, explicit waits</td></tr>
             </tbody>
           </table>
           <p class="badge">17 specs · mobile web + API · Android (CI) + iOS (local)</p>
         </section>
 
-        <section id="executar">
-          <h2>Como executar</h2>
+        <section id="run-tests">
+          <h2>How to run</h2>
           <div class="feature-grid">
             <div class="feature-card">
               <h4 class="card-heading"><img src="assets/logos/android.svg" alt="" width="24" height="24" class="logo-color card-logo" aria-hidden="true" /> Android emulator</h4>
@@ -1002,27 +1002,27 @@ npm run test:android
 npm run test:smoke</code></pre>
             </div>
             <div class="feature-card">
-              <h4 class="card-heading"><img src="assets/logos/axios.svg" alt="" width="24" height="24" class="logo-color card-logo" aria-hidden="true" /> API only (sem emulador)</h4>
+              <h4 class="card-heading"><img src="assets/logos/axios.svg" alt="" width="24" height="24" class="logo-color card-logo" aria-hidden="true" /> API only (no emulator)</h4>
               <pre><code class="language-bash">npm run test:api
 npm run check:testflow
 npm run appium:doctor</code></pre>
             </div>
           </div>
-          <pre><code class="language-bash"># Slides &amp; documentação
-npm run slides              # serve na porta 3336
-npm run slides:open         # abre docs/slides/ no browser
-npm run slides:pdf          # exporta slides para PDF
+          <pre><code class="language-bash"># Slides &amp; documentation
+npm run slides              # serve on port 3336
+npm run slides:open         # open docs/slides/ in browser
+npm run slides:pdf          # export slides to PDF
 
 # Appium setup
-npm run appium:doctor       # valida drivers uiautomator2 + xcuitest
-npm run appium:drivers      # instala drivers Appium 2
-npm run check:testflow      # verifica TestFlow na porta 5050
+npm run appium:doctor       # validate uiautomator2 + xcuitest drivers
+npm run appium:drivers      # install Appium 2 drivers
+npm run check:testflow      # verify TestFlow on port 5050
 
-# Testes WDIO (mobile web)
-npm test                    # suite Android completa (default)
+# WDIO tests (mobile web)
+npm test                    # full Android suite (default)
 npm run test:android        # PLATFORM=android
 npm run test:ios            # PLATFORM=ios (macOS + Simulator)
-npm run test:both           # Android + iOS sequencial
+npm run test:both           # Android + iOS sequential
 npm run test:smoke          # smoke navigation
 npm run test:auth           # login UI
 npm run test:dashboard      # dashboard
@@ -1034,57 +1034,57 @@ npm run test:activity       # dynamic activity page
 npm run test:advanced       # shadow DOM / iframe
 npm run test:states         # loading / empty / error
 npm run test:layout         # app shell
-npm run test:visual         # regressão visual
+npm run test:visual         # visual regression
 npm run test:gestures       # swipe, long press
 npm run test:device         # keyboard, orientation
 npm run test:contexts       # WEBVIEW switching
 npm run test:locators       # CSS, XPath strategies
 
-# API &amp; filtros por tag
-npm run test:api            # REST suite (Mocha, sem emulador)
+# API &amp; tag filters
+npm run test:api            # REST suite (Mocha, no emulator)
 npm run test:grep:smoke     # --mochaOpts.grep @smoke
 npm run test:grep:regression # --mochaOpts.grep @regression
 npm run test:grep:appium    # --mochaOpts.grep @appium
 
 # CI scripts
-npm run test:ci:android         # suite completa no CI
-npm run test:ci:android:smoke     # smoke gate no PR
+npm run test:ci:android         # full suite in CI
+npm run test:ci:android:smoke     # smoke gate on PR
 
 # Allure Report
-npm run allure:generate     # gera allure-report/ (requer Java 17+)
-npm run allure:open         # abre relatório no browser
-npm run allure:clean        # limpa allure-results e allure-report
-npm run report              # generate + open (atalho)</code></pre>
+npm run allure:generate     # builds allure-report/ (requires Java 17+)
+npm run allure:open         # open report in browser
+npm run allure:clean        # clean allure-results and allure-report
+npm run report              # generate + open (shortcut)</code></pre>
         </section>
 
         <section id="allure">
           <h2>Allure Report</h2>
           <p>
-            Runs WDIO produzem resultados brutos em <code>allure-results/</code>.
-            O reporter anexa screenshots, URL atual e variáveis de ambiente automaticamente em falha.
+            WDIO runs produce raw results in <code>allure-results/</code>.
+            The reporter attaches screenshots, current URL, and environment variables automatically on failure.
           </p>
           <div class="feature-grid">
             <div class="feature-card">
               <h4 class="card-heading"><img src="assets/logos/allure.svg" alt="" width="24" height="24" class="logo-color card-logo" aria-hidden="true" /> Screenshots</h4>
-              <p><code>afterTest</code> captura PNG e anexa ao Allure em falha.</p>
+              <p><code>afterTest</code> captures PNG and attaches to Allure on failure.</p>
             </div>
             <div class="feature-card">
               <h4 class="card-heading"><img src="assets/logos/nodejs.svg" alt="" width="24" height="24" class="logo-color card-logo" aria-hidden="true" /> Environment</h4>
-              <p>PLATFORM, BASE_URL, NODE_VERSION, OS no report.</p>
+              <p>PLATFORM, BASE_URL, NODE_VERSION, OS in the report.</p>
             </div>
             <div class="feature-card">
               <h4 class="card-heading"><img src="assets/logos/github.svg" alt="" width="24" height="24" class="logo-github-adaptive card-logo" aria-hidden="true" /> GitHub Pages</h4>
-              <p>Publicado em push para <code>main</code> via <code>pages.yml</code>.</p>
+              <p>Published on push to <code>main</code> via <code>pages.yml</code>.</p>
             </div>
             <div class="feature-card">
               <h4 class="card-heading"><img src="assets/logos/java.svg" alt="" width="24" height="24" class="logo-color card-logo" aria-hidden="true" /> Java 17+</h4>
-              <p><code>allure-commandline</code> requer JDK para <code>allure generate</code>.</p>
+              <p><code>allure-commandline</code> requires JDK for <code>allure generate</code>.</p>
             </div>
           </div>
-          <pre><code class="language-bash">npm run test:smoke          # gera allure-results/
-npm run allure:generate     # constrói allure-report/
-npm run allure:open         # abre no browser
-npm run report              # atalho: generate + open</code></pre>
+          <pre><code class="language-bash">npm run test:smoke          # generates allure-results/
+npm run allure:generate     # builds allure-report/
+npm run allure:open         # open in browser
+npm run report              # shortcut: generate + open</code></pre>
           <p>
             Hub: <a href="https://lflucasferreira.github.io/testflow-appium/" target="_blank" rel="noopener">lflucasferreira.github.io/testflow-appium</a> ·
             Report: <a href="https://lflucasferreira.github.io/testflow-appium/report/" target="_blank" rel="noopener">/report/</a>
@@ -1096,7 +1096,7 @@ npm run report              # atalho: generate + open</code></pre>
           <div class="feature-grid">
             <div class="feature-card">
               <h4 class="card-heading"><img src="assets/logos/axios.svg" alt="" width="24" height="24" class="logo-color card-logo" aria-hidden="true" /> API smoke</h4>
-              <p>Job <code>api</code> — REST contra TestFlow Docker service.</p>
+              <p>Job <code>api</code> — REST against TestFlow Docker service.</p>
             </div>
             <div class="feature-card">
               <h4 class="card-heading"><img src="assets/logos/android.svg" alt="" width="24" height="24" class="logo-color card-logo" aria-hidden="true" /> Android smoke</h4>
@@ -1104,72 +1104,72 @@ npm run report              # atalho: generate + open</code></pre>
             </div>
             <div class="feature-card">
               <h4 class="card-heading"><img src="assets/logos/github.svg" alt="" width="24" height="24" class="logo-github-adaptive card-logo" aria-hidden="true" /> GitHub Pages</h4>
-              <p><code>pages.yml</code> — suite completa + Allure report.</p>
+              <p><code>pages.yml</code> — full suite + Allure report.</p>
             </div>
             <div class="feature-card">
-              <h4 class="card-heading"><img src="assets/logos/githubactions.svg" alt="" width="24" height="24" class="logo-color card-logo" aria-hidden="true" /> Artefatos</h4>
-              <p>Screenshots + allure-results em falha.</p>
+              <h4 class="card-heading"><img src="assets/logos/githubactions.svg" alt="" width="24" height="24" class="logo-color card-logo" aria-hidden="true" /> Artifacts</h4>
+              <p>Screenshots + allure-results on failure.</p>
             </div>
           </div>
           <table class="compare-table compact">
             <thead>
-              <tr><th>Workflow</th><th>Job</th><th>O que executa</th></tr>
+              <tr><th>Workflow</th><th>Job</th><th>What it runs</th></tr>
             </thead>
             <tbody>
               <tr><td><code>appium.yml</code></td><td><code>api</code></td><td><code>npm run test:api</code> — REST smoke</td></tr>
               <tr><td><code>appium.yml</code></td><td><code>android-smoke</code></td><td>Emulator API 34 + <code>ci-android-smoke.sh</code></td></tr>
-              <tr><td><code>pages.yml</code></td><td><code>report</code></td><td>Suite Android completa + Allure HTML</td></tr>
-              <tr><td><code>pages.yml</code></td><td><code>deploy</code></td><td>Publica em GitHub Pages</td></tr>
+              <tr><td><code>pages.yml</code></td><td><code>report</code></td><td>Full Android suite + Allure HTML</td></tr>
+              <tr><td><code>pages.yml</code></td><td><code>deploy</code></td><td>Publish to GitHub Pages</td></tr>
             </tbody>
           </table>
-          <p>iOS jobs requerem runners macOS — execute localmente com <code>npm run test:ios</code>.</p>
+          <p>iOS jobs require macOS runners — run locally with <code>npm run test:ios</code>.</p>
           <div class="callout">
-            Setup único GitHub Pages: Settings → Pages → Source = <strong>GitHub Actions</strong>.
-            Sem isso, <code>deploy-pages</code> falha com 404.
+            One-time GitHub Pages setup: Settings → Pages → Source = <strong>GitHub Actions</strong>.
+            Without this, <code>deploy-pages</code> fails with 404.
           </div>
         </section>
 
-        <section id="boas-praticas">
-          <h2>Boas práticas</h2>
+        <section id="best-practices">
+          <h2>Best practices</h2>
           <ul>
-            <li><strong>Page Objects</strong> em <code>pages/</code> — locators, ações e assertions isolados</li>
-            <li><code>data-testid</code> via <code>byTestId()</code> — mesma convenção do testflow-cypress/playwright</li>
-            <li><code>loginViaApi()</code> no <code>beforeEach</code> — specs de feature sem repetir login UI</li>
-            <li><code>seedSessionOnOrigin()</code> — injeta token no origin correto antes de navegar</li>
-            <li><code>getBaseUrl()</code> — resolve loopback automaticamente por plataforma</li>
-            <li><code>hideKeyboardIfShown()</code> — fecha teclado antes de clicar em botões Android</li>
-            <li><code>scrollIntoView()</code> antes de gestos — elemento visível no viewport</li>
-            <li><code>maxInstances: 1</code> — um device por vez, evita conflito de sessão</li>
-            <li>Tags <code>@smoke</code> / <code>@regression</code> / <code>@appium</code> — filtrar no CI</li>
-            <li><code>tc(TC.…)</code> — IDs rastreáveis <code>[TC-xxxx]</code> no título do teste</li>
-            <li><code>validateSchema</code> — tipos da resposta REST de forma declarativa</li>
-            <li><code>assertScreenshotMatches</code> — baselines visuais com threshold configurável</li>
-            <li>Screenshots em <code>afterTest</code> — diagnóstico automático em falha</li>
-            <li><code>npm run test:api</code> primeiro — valida TestFlow sem emulador</li>
-            <li><code>npm run appium:doctor</code> — valida drivers antes do primeiro run mobile</li>
-            <li>Um cenário por <code>it()</code> — falhas fáceis de diagnosticar no Allure</li>
-            <li><code>visitWithToken</code> no smoke — token compartilhado via <code>before</code></li>
-            <li>Fixtures JSON em <code>fixtures/</code> — credenciais válidas/inválidas determinísticas</li>
+            <li><strong>Page Objects</strong> in <code>pages/</code> — isolated locators, actions, and assertions</li>
+            <li><code>data-testid</code> via <code>byTestId()</code> — same convention as testflow-cypress/playwright</li>
+            <li><code>loginViaApi()</code> in <code>beforeEach</code> — feature specs without repeating UI login</li>
+            <li><code>seedSessionOnOrigin()</code> — injects token on the correct origin before navigating</li>
+            <li><code>getBaseUrl()</code> — resolves loopback automatically per platform</li>
+            <li><code>hideKeyboardIfShown()</code> — close keyboard before clicking buttons on Android</li>
+            <li><code>scrollIntoView()</code> before gestures — element visible in viewport</li>
+            <li><code>maxInstances: 1</code> — one device at a time, avoids session conflicts</li>
+            <li>Tags <code>@smoke</code> / <code>@regression</code> / <code>@appium</code> — filter in CI</li>
+            <li><code>tc(TC.…)</code> — traceable <code>[TC-xxxx]</code> IDs in test titles</li>
+            <li><code>validateSchema</code> — declarative REST response types</li>
+            <li><code>assertScreenshotMatches</code> — visual baselines with configurable threshold</li>
+            <li>Screenshots in <code>afterTest</code> — automatic failure diagnostics</li>
+            <li><code>npm run test:api</code> first — validates TestFlow without emulator</li>
+            <li><code>npm run appium:doctor</code> — validate drivers before first mobile run</li>
+            <li>One scenario per <code>it()</code> — easy to diagnose failures in Allure</li>
+            <li><code>visitWithToken</code> in smoke — shared token via <code>before</code></li>
+            <li>JSON fixtures in <code>fixtures/</code> — deterministic valid/invalid credentials</li>
           </ul>
         </section>
 
-        <section id="proximos-passos">
-          <h2>Próximos passos</h2>
+        <section id="next-steps">
+          <h2>Next steps</h2>
           <div class="feature-grid">
             <a class="feature-card" href="index.html" style="text-decoration:none;color:inherit;">
               <img class="card-logo" src="assets/icons/revealjs.svg" alt="" width="32" height="32" aria-hidden="true" />
-              <h4>Slides interativos</h4>
-              <p>Apresentação Reveal.js com animações e navegação por teclado.</p>
+              <h4>Interactive slides</h4>
+              <p>Reveal.js presentation with animations and keyboard navigation.</p>
             </a>
             <a class="feature-card" href="https://appium.io/docs/en/latest/" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">
               <img class="card-logo logo-color" src="assets/logos/appium.svg" alt="" width="32" height="32" aria-hidden="true" />
-              <h4>Documentação Appium</h4>
-              <p>appium.io — referência oficial Appium 2.</p>
+              <h4>Appium documentation</h4>
+              <p>appium.io — official Appium 2 reference.</p>
             </a>
             <a class="feature-card" href="https://webdriver.io/docs/gettingstarted" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">
               <img class="card-logo logo-color" src="assets/logos/webdriverio.svg" alt="" width="32" height="32" aria-hidden="true" />
-              <h4 class="card-heading">Documentação WebdriverIO</h4>
-              <p>webdriver.io — API, config e reporters.</p>
+              <h4>WebdriverIO documentation</h4>
+              <p>webdriver.io — API, config, and reporters.</p>
             </a>
           </div>
         </section>
@@ -1177,11 +1177,11 @@ npm run report              # atalho: generate + open</code></pre>
     </div>
 
     <footer class="site-footer">
-      TestFlow Appium — Guia completo · Junho 2026 ·
-      <a href="index.html">Voltar aos slides</a>
+      TestFlow Appium — Complete guide · June 2026 ·
+      <a href="slides/index.html">Back to slides</a>
     </footer>
 
-    <script src="../../node_modules/reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="../node_modules/reveal.js/plugin/highlight/highlight.js"></script>
     <script>hljs.highlightAll()</script>
     <script>
       const links = document.querySelectorAll('.sidebar a')
@@ -1201,6 +1201,6 @@ npm run report              # atalho: generate + open</code></pre>
 
       sections.forEach((s) => observer.observe(s))
     </script>
-    <script src="../js/theme-toggle.js"></script>
+    <script src="js/theme-toggle.js"></script>
   </body>
 </html>

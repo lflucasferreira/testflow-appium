@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url'
 
 const dir = path.dirname(fileURLToPath(import.meta.url))
 const slidesDir = path.resolve(dir, '..')
+const docsDir = path.resolve(dir, '../..')
 
 const LOGO = 'assets/logos'
 const img = (name, { color = false, macos = false, w = 24, cls = '' } = {}) => {
@@ -184,7 +185,7 @@ function patchFile(filePath, extra = []) {
   console.log('patched', path.basename(filePath))
 }
 
-patchFile(path.join(slidesDir, 'guia-completo.html'), [
+patchFile(path.join(docsDir, 'guia-completo.html'), [
   [
     `<thead>
               <tr><th>Aspecto</th><th>Appium + WDIO</th><th>Playwright (desktop)</th></tr>
@@ -242,7 +243,7 @@ patchFile(path.join(slidesDir, 'guia-completo.html'), [
   ],
 ])
 
-patchFile(path.join(slidesDir, 'complete-guide.html'), [
+patchFile(path.join(docsDir, 'complete-guide.html'), [
   [
     `<thead>
               <tr><th>Aspect</th><th>Appium + WDIO</th><th>Playwright (desktop)</th></tr>

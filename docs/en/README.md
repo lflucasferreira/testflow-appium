@@ -129,8 +129,8 @@ The docs cover, among other topics:
 | Resource | Description |
 |----------|-------------|
 | [`slides/`](../slides/) | Introductory Appium presentation (HTML/PDF) |
-| [`slides/guia-completo.html`](../slides/guia-completo.html) | Step-by-step guide in Portuguese (single page) |
-| [`slides/complete-guide.html`](../slides/complete-guide.html) | Step-by-step guide in English (single page) |
+| [`guia-completo.html`](../guia-completo.html) | Step-by-step guide in Portuguese (single page) |
+| [`complete-guide.html`](../complete-guide.html) | Step-by-step guide in English (single page) |
 | [`selector-strategy.md`](../selector-strategy.md) | `data-testid` via WDIO helpers |
 | [`appium-technical-interview-questions.md`](../appium-technical-interview-questions.md) | Technical interview question bank (Portuguese) |
 
