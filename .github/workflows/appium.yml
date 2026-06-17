@@ -105,3 +105,13 @@ jobs:
           name: android-smoke-screenshots
           path: screenshots/
           if-no-files-found: ignore
+
+      - name: Upload Allure results
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: allure-results-android-smoke
+          path: |
+            allure-results/
+            allure-report/
+          if-no-files-found: ignore

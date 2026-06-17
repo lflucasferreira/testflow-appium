@@ -33,6 +33,11 @@ echo "Checking TestFlow health at ${API_BASE_URL}/health ..."
 curl -sf "${API_BASE_URL}/health" | tee /tmp/testflow-health.json
 echo
 
-mkdir -p screenshots test-results
+mkdir -p screenshots test-results allure-results
 
-npm run test:smoke
+TEST_EXIT=0
+npm run test:smoke || TEST_EXIT=$?
+
+npm run allure:generate || true
+
+exit "${TEST_EXIT}"

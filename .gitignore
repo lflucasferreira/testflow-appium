@@ -1,6 +1,8 @@
 node_modules/
 .env
 .allure/
+allure-results/
+allure-report/
 appium.log
 screenshots/
 test-results/

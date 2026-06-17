@@ -43,6 +43,7 @@ Traceable test case IDs use the `[TC-xxxx]` prefix — see `support/constants/te
 ## Prerequisites
 
 - Node.js 20+
+- Java 17+ (for `allure generate` / `npm run report`)
 - Appium 2 (`npm install` installs it locally)
 - **Android:** Android SDK, emulator or device, Chrome
 - **iOS:** macOS, Xcode, iOS Simulator (for `npm run test:ios`)
@@ -114,6 +115,29 @@ npm run test:grep:regression
 npm run test:grep:appium
 ```
 
+## Allure Report
+
+Mobile WDIO runs produce raw results in `allure-results/`. Generate and open the HTML report locally:
+
+```bash
+# Requires Java 17+ for allure-commandline
+npm run test:smoke          # or any WDIO suite
+npm run allure:generate     # builds allure-report/
+npm run allure:open         # opens in browser
+
+# shortcut
+npm run report
+```
+
+### GitHub Pages
+
+On every push to `main`, `.github/workflows/pages.yml` runs the Android smoke suite, generates Allure HTML, and publishes to GitHub Pages:
+
+- Hub: `https://lflucasferreira.github.io/testflow-appium/`
+- Report: `https://lflucasferreira.github.io/testflow-appium/report/`
+
+CI also uploads `allure-results/` and `allure-report/` as workflow artifacts in `appium.yml`.
+
 ## Project structure
 
 ```
@@ -149,6 +173,7 @@ iOS jobs require macOS runners — run locally with `npm run test:ios`.
 - [Appium 2](https://appium.io/)
 - [WebdriverIO 9](https://webdriver.io/)
 - TypeScript + Mocha
+- [Allure Report](https://allurereport.org/)
 - Page Object Model with `data-testid` selectors
 - Axios for API tests
 
