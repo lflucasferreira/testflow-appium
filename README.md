@@ -131,12 +131,12 @@ npm run report
 
 ### GitHub Pages
 
-On every push to `main`, `.github/workflows/pages.yml` runs the **full Android WDIO suite** (`npm test`), generates Allure HTML, and publishes to GitHub Pages:
+On every push to `main`, the `publish` job in `.github/workflows/appium.yml` merges Allure results from CI, generates HTML, and deploys to GitHub Pages:
 
 - Hub: `https://lflucasferreira.github.io/testflow-appium/`
 - Report: `https://lflucasferreira.github.io/testflow-appium/report/`
 
-CI also uploads `allure-results/` and `allure-report/` as workflow artifacts in `appium.yml`.
+CI uploads `allure-results/` from each job; the `publish` job builds the combined Allure report on `main`.
 
 #### One-time setup (required)
 
@@ -144,7 +144,7 @@ CI also uploads `allure-results/` and `allure-report/` as workflow artifacts in 
 
 1. Open [Settings → Pages](https://github.com/lflucasferreira/testflow-appium/settings/pages)
 2. Under **Build and deployment → Source**, select **GitHub Actions** (not “Deploy from a branch”)
-3. Re-run the **Deploy Allure Report** workflow (`workflow_dispatch` or push to `main`)
+3. Re-run the **Appium Mobile** workflow (`workflow_dispatch` or push to `main`)
 
 The workflow already declares the required permissions:
 
@@ -181,8 +181,9 @@ GitHub Actions workflow (`.github/workflows/appium.yml`):
 | Job | What it runs |
 |---|---|
 | `api` | REST smoke against TestFlow Docker service |
-| `android-smoke` | Smoke suite on Android emulator (API 34) — PR gate |
-| `pages.yml` | Full Android suite + Allure report on GitHub Pages |
+| `android` | Smoke on PR; full Android suite on push to `main` (emulator API 34) |
+| `publish` | Merges Allure results, builds site, deploys GitHub Pages (`main` only) |
+| `deploy` | GitHub Pages deployment (`main` only) |
 
 iOS jobs require macOS runners — run locally with `npm run test:ios`.
 

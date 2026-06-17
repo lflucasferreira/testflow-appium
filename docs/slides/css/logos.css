@@ -1,0 +1,255 @@
+/**
+ * Brand / OS logos for guides and slides
+ * SVGs in assets/logos/ use official brand colors (Simple Icons CDN).
+ */
+
+.logo-heading,
+.card-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.logo-heading img,
+.card-heading img,
+.card-logo,
+.feature-card .card-logo {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* Colored brand logos — no filter */
+.logo-heading img.logo-color,
+.card-heading img.logo-color,
+.logo-inline.logo-color,
+.feature-card .card-logo.logo-color,
+.reveal .logo-heading img.logo-color,
+ul.logo-list li img.logo-color,
+.tool-chip img.logo-color,
+.compare-table .logo-cell img.logo-color {
+  filter: none;
+  opacity: 1;
+}
+
+/* Apple glyph — white on dark, black on light (src swapped via theme.js) */
+.logo-heading img.logo-macos,
+.reveal .logo-heading img.logo-macos {
+  filter: none;
+  opacity: 1;
+}
+
+[data-theme='light'] img.logo-macos[src*='macos.svg']:not([src*='macos-light']) {
+  filter: brightness(0);
+}
+
+/* Monochrome icons only (no brand color in SVG) */
+.logo-heading img:not(.logo-color):not(.logo-macos):not(.logo-github-adaptive),
+.card-heading img:not(.logo-color):not(.logo-macos):not(.logo-github-adaptive) {
+  filter: brightness(0) invert(1);
+  opacity: 0.92;
+}
+
+[data-theme="light"] .logo-heading img:not(.logo-color):not(.logo-macos):not(.logo-github-adaptive),
+[data-theme="light"] .card-heading img:not(.logo-color):not(.logo-macos):not(.logo-github-adaptive) {
+  filter: none;
+  opacity: 1;
+}
+
+.logo-inline {
+  width: 18px;
+  height: 18px;
+  vertical-align: -0.25em;
+  margin-right: 0.35rem;
+  object-fit: contain;
+}
+
+.logo-inline:not(.logo-color) {
+  filter: brightness(0) invert(1);
+  opacity: 0.88;
+}
+
+[data-theme="light"] .logo-inline:not(.logo-color) {
+  filter: none;
+  opacity: 1;
+}
+
+ul.logo-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul.logo-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+
+ul.logo-list li img {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  object-fit: contain;
+}
+
+ul.logo-list li img:not(.logo-color) {
+  filter: brightness(0) invert(1);
+  opacity: 0.88;
+}
+
+[data-theme="light"] ul.logo-list li img:not(.logo-color) {
+  filter: none;
+  opacity: 1;
+}
+
+.tool-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin: 0.75rem 0 1rem;
+}
+
+.tool-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.65rem;
+  background: var(--ap-surface, #1a2332);
+  border: 1px solid var(--ap-border, #2d3a4d);
+  border-radius: 999px;
+  font-size: 0.8125rem;
+  color: var(--ap-text, #e8edf4);
+}
+
+.tool-chip img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.tool-chip img:not(.logo-color) {
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
+
+[data-theme="light"] .tool-chip img:not(.logo-color) {
+  filter: none;
+  opacity: 1;
+}
+
+.reveal .feature-card .icon-logo {
+  width: 36px;
+  height: 36px;
+  margin-bottom: 0.35em;
+  object-fit: contain;
+}
+
+.reveal .feature-card .icon-logo.logo-color {
+  filter: none;
+  opacity: 1;
+}
+
+.reveal ul.logo-list li img.logo-color {
+  filter: none;
+  opacity: 1;
+}
+
+.reveal .feature-card .icon-logo:not(.logo-color) {
+  filter: brightness(0) invert(1);
+  opacity: 0.95;
+}
+
+[data-theme="light"] .reveal .feature-card .icon-logo:not(.logo-color) {
+  filter: none;
+  opacity: 1;
+}
+
+.reveal .logo-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  justify-content: flex-start;
+  font-size: inherit;
+}
+
+.reveal h2.logo-heading,
+.reveal h3.logo-heading,
+.reveal h4.logo-heading {
+  margin-bottom: 0.6em;
+}
+
+.reveal .logo-heading img {
+  width: 28px;
+  height: 28px;
+}
+
+.compare-table .logo-cell {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.compare-table .logo-cell img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
+.compare-table .logo-cell img:not(.logo-color) {
+  filter: brightness(0) invert(1);
+  opacity: 0.85;
+}
+
+[data-theme="light"] .compare-table .logo-cell img:not(.logo-color) {
+  filter: none;
+  opacity: 1;
+}
+
+.platform-grid .feature-card > h4.logo-heading {
+  margin-top: 0;
+}
+
+.feature-card > h4.logo-heading {
+  margin-top: 0;
+}
+
+.slide-cta .link-card img {
+  display: block;
+  margin: 0 auto 0.5rem;
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.slide-cta .link-card img.logo-color,
+.slide-cta .link-card img[src*='.png'] {
+  filter: none;
+  opacity: 1;
+}
+
+.reveal ul.logo-list {
+  list-style: none;
+  padding-left: 0;
+  text-align: left;
+}
+
+.reveal ul.logo-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.45em;
+}
+
+[data-theme="dark"] img.logo-github-adaptive,
+[data-theme="dark"] .card-heading img.logo-github-adaptive {
+  filter: brightness(0) invert(1);
+}
+
+[data-theme="light"] img.logo-github-adaptive,
+[data-theme="light"] .card-heading img.logo-github-adaptive {
+  filter: none;
+  opacity: 1;
+}
+

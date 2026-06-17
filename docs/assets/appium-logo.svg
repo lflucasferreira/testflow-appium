@@ -1,7 +1,0 @@
-<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-label="Appium">
-  <title>Appium</title>
-  <rect x="7" y="2" width="10" height="20" rx="2.2" fill="none" stroke="#00C9B7" stroke-width="1.6"/>
-  <circle cx="12" cy="18.5" r="1" fill="#00C9B7"/>
-  <path fill="#00C9B7" d="M10.2 5.2h3.6a.8.8 0 0 1 0 1.6h-3.6a.8.8 0 0 1 0-1.6Z"/>
-  <path fill="#662D91" d="M4.5 8.2 2 12l2.5 3.8V8.2Zm15 0v7.6L22 12l-2.5-3.8Z"/>
-</svg>

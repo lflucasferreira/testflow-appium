@@ -4,280 +4,82 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>testflow-appium — Appium Mobile Suite</title>
-    <meta name="description" content="Appium 2 + WebdriverIO mobile web automation for TestFlow. Full-suite Allure reports, Android CI, and GitHub Pages." />
-    <link rel="icon" href="assets/appium-logo.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <style>
-      :root {
-        --accent: #00c9b7;
-        --accent-dark: #00a896;
-        --accent-glow: rgba(0, 201, 183, 0.25);
-        --bg: #0f1419;
-        --surface: #1a2332;
-        --surface-2: #111820;
-        --border: #2d3a4d;
-        --text: #e8edf4;
-        --muted: #8b9cb0;
-        --pass: #3dd68c;
-        --font-sans: 'Inter', system-ui, sans-serif;
-        --font-mono: 'JetBrains Mono', monospace;
-      }
+    <meta name="description" content="Appium 2 + WebdriverIO mobile web automation for TestFlow. Guides, slides, Allure reports, and Android CI." />
+    <link rel="icon" href="assets/appium-logo.png" type="image/png" />
+    <script>
+      (function () {
+        var path = location.pathname
+        var last = path.split('/').filter(Boolean).pop() || ''
+        if (/\.html?$/i.test(last)) return
 
-      *, *::before, *::after { box-sizing: border-box; }
+        var base
+        var slidesIdx = path.indexOf('/slides')
+        if (slidesIdx !== -1) {
+          base = path.substring(0, slidesIdx + '/slides'.length) + '/'
+        } else {
+          base = path.replace(/\/index$/i, '')
+          if (!base.endsWith('/')) base += '/'
+        }
 
-      body {
-        margin: 0;
-        font-family: var(--font-sans);
-        background: var(--bg);
-        background-image:
-          radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0, 201, 183, 0.1), transparent),
-          radial-gradient(circle at 100% 100%, rgba(102, 45, 145, 0.08), transparent 40%);
-        color: var(--text);
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-      }
-
-      a { color: var(--accent); text-decoration: none; }
-      a:hover { text-decoration: underline; }
-
-      header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 2rem;
-        height: 56px;
-        border-bottom: 1px solid var(--border);
-        background: rgba(15, 20, 25, 0.92);
-        backdrop-filter: blur(8px);
-        position: sticky;
-        top: 0;
-        z-index: 10;
-      }
-
-      .brand {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-weight: 700;
-        font-size: 0.95rem;
-        color: var(--text);
-      }
-
-      .brand img { width: 26px; height: 26px; }
-
-      header nav { display: flex; gap: 1.5rem; font-size: 0.875rem; color: var(--muted); }
-      header nav a { color: var(--muted); }
-      header nav a:hover { color: var(--accent); text-decoration: none; }
-
-      .hero {
-        text-align: center;
-        padding: 5rem 2rem 3rem;
-      }
-
-      .hero-logo {
-        width: 72px;
-        height: 72px;
-        margin: 0 auto 1.5rem;
-        filter: drop-shadow(0 0 18px var(--accent-glow));
-      }
-
-      .hero h1 {
-        font-size: clamp(1.75rem, 4vw, 2.5rem);
-        font-weight: 700;
-        margin: 0 0 0.75rem;
-        letter-spacing: -0.02em;
-      }
-
-      .hero h1 span { color: var(--accent); }
-
-      .hero p {
-        font-size: 1.05rem;
-        color: var(--muted);
-        max-width: 620px;
-        margin: 0 auto 2rem;
-        line-height: 1.7;
-      }
-
-      .badges {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 8px;
-        margin-bottom: 0.5rem;
-      }
-
-      .badges img { height: 20px; }
-
-      .cards {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.25rem;
-        max-width: 760px;
-        margin: 3rem auto 2rem;
-        padding: 0 2rem;
-      }
-
-      @media (max-width: 520px) {
-        .cards { grid-template-columns: 1fr; }
-      }
-
-      .card {
-        background: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        padding: 1.75rem;
-        display: flex;
-        flex-direction: column;
-        gap: 0.75rem;
-        transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
-        text-decoration: none;
-        color: inherit;
-      }
-
-      .card:hover {
-        border-color: var(--accent);
-        box-shadow: 0 8px 32px var(--accent-glow);
-        transform: translateY(-3px);
-        text-decoration: none;
-      }
-
-      .card-icon { font-size: 1.75rem; line-height: 1; }
-
-      .card-lang {
-        display: inline-block;
-        font-size: 0.7rem;
-        font-family: var(--font-mono);
-        background: var(--surface-2);
-        color: var(--accent);
-        border: 1px solid var(--border);
-        border-radius: 4px;
-        padding: 2px 8px;
-        width: fit-content;
-      }
-
-      .card-lang.live { color: var(--pass); border-color: rgba(61, 214, 140, 0.35); }
-
-      .card h2 {
-        font-size: 1.05rem;
-        font-weight: 700;
-        margin: 0;
-        color: var(--text);
-      }
-
-      .card p {
-        font-size: 0.875rem;
-        color: var(--muted);
-        margin: 0;
-        line-height: 1.6;
-        flex: 1;
-      }
-
-      .card p code {
-        font-family: var(--font-mono);
-        font-size: 0.8em;
-        background: var(--surface-2);
-        padding: 0.1rem 0.35rem;
-        border-radius: 4px;
-      }
-
-      .card-arrow {
-        font-size: 0.8rem;
-        color: var(--accent);
-        font-family: var(--font-mono);
-        margin-top: auto;
-      }
-
-      footer {
-        margin-top: auto;
-        padding: 2.5rem 2rem;
-        text-align: center;
-        font-size: 0.8rem;
-        color: var(--muted);
-        border-top: 1px solid var(--border);
-      }
-
-      footer a { color: var(--muted); }
-      footer a:hover { color: var(--accent); }
-
-      @media (max-width: 600px) {
-        .cards { grid-template-columns: 1fr; padding: 0 1rem; }
-        .hero { padding: 3.5rem 1rem 2rem; }
-        header { padding: 0 1rem; }
-        header nav { gap: 1rem; }
-      }
-    </style>
+        var b = document.createElement('base')
+        b.href = base
+        document.head.appendChild(b)
+      })()
+    </script>
+    <script src="js/theme-init.js"></script>
+    <link rel="stylesheet" href="css/landing.css" />
+    <link rel="stylesheet" href="css/theme-toggle.css" />
   </head>
   <body>
     <header>
       <a class="brand" href=".">
-        <img src="assets/appium-logo.svg" alt="Appium" />
+        <img src="assets/appium-logo.png" alt="Appium" />
         testflow-appium
       </a>
       <nav>
-        <a href="report/index.html">Report</a>
-        <a href="https://github.com/lflucasferreira/testflow-appium#running-tests" target="_blank" rel="noopener">README</a>
-        <a href="https://github.com/lflucasferreira/testflow-appium" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://appium.io/docs/en/latest/" target="_blank" rel="noopener">Appium Docs</a>
+        <a class="nav-github" href="https://github.com/lflucasferreira/testflow-appium" target="_blank" rel="noopener">
+          <img src="assets/icons/github.svg" alt="" width="18" height="18" aria-hidden="true" />
+          GitHub
+        </a>
+        <button type="button" class="theme-toggle" aria-label="Toggle theme">
+          <span class="theme-toggle-icon theme-toggle-icon--dark" aria-hidden="true">☀</span>
+          <span class="theme-toggle-icon theme-toggle-icon--light" aria-hidden="true">☾</span>
+        </button>
       </nav>
     </header>
 
     <main>
       <section class="hero">
-        <img class="hero-logo" src="assets/appium-logo.svg" alt="Appium" />
+        <img class="hero-logo" src="assets/appium-logo.png" alt="Appium" />
         <h1>Appium <span>Mobile Suite</span></h1>
-        <p>Mobile web automation for TestFlow — Chrome on Android, Safari on iOS, gestures, contexts, locators, and Allure reports. Mirrors Cypress, Playwright, and PyTest coverage with Appium-specific demos.</p>
+        <p>Mobile web automation for TestFlow — Chrome on Android, Safari on iOS, gestures, contexts, locators, and Allure reports. Mirrors Cypress, Playwright, and PyTest coverage.</p>
         <div class="badges">
           <a href="https://github.com/lflucasferreira/testflow-appium/actions/workflows/appium.yml" target="_blank" rel="noopener">
-            <img src="https://github.com/lflucasferreira/testflow-appium/actions/workflows/appium.yml/badge.svg" alt="Appium CI" />
-          </a>
-          <a href="https://github.com/lflucasferreira/testflow-appium/actions/workflows/pages.yml" target="_blank" rel="noopener">
-            <img src="https://github.com/lflucasferreira/testflow-appium/actions/workflows/pages.yml/badge.svg" alt="Pages deploy" />
+            <img src="https://github.com/lflucasferreira/testflow-appium/actions/workflows/appium.yml/badge.svg" alt="Appium CI &amp; Pages" />
           </a>
         </div>
       </section>
 
-      <div class="cards">
-        <a class="card" href="report/index.html">
-          <div class="card-icon">📊</div>
-          <span class="card-lang live">CI · updated on every push</span>
+      <div class="cards cards--inline" aria-label="Documentation">
+        <a class="card" href="slides/complete-guide.html">
+          <img class="card-icon" src="assets/appium-logo.png" alt="" aria-hidden="true" />
+          <h2>Complete Guide</h2>
+          <p>Setup, project structure, all WebdriverIO commands and Appium mobile patterns.</p>
+          <span class="card-arrow">↗ complete-guide.html</span>
+        </a>
+
+        <a class="card" href="slides/index.html">
+          <img class="card-icon" src="assets/icons/revealjs.svg" alt="" aria-hidden="true" />
+          <h2>Slides</h2>
+          <p>Interactive Reveal.js presentation — Appium 2, WebdriverIO, gestures, contexts, POM, CI/CD.</p>
+          <span class="card-arrow">↗ slides/index.html</span>
+        </a>
+
+        <a class="card" href="https://lflucasferreira.github.io/testflow-appium/report/index.html" target="_blank" rel="noopener">
+          <img class="card-icon" src="assets/icons/allure.svg" alt="" aria-hidden="true" />
           <h2>Allure Report</h2>
-          <p>Full Android mobile web suite — smoke, auth, dashboard, team, gestures, device, contexts, visual, and more. Screenshots on failure and environment metadata. Published by <code>pages.yml</code> on every push to main.</p>
-          <span class="card-arrow">↗ report/index.html</span>
-        </a>
-
-        <a class="card" href="https://github.com/lflucasferreira/testflow-appium#allure-report" target="_blank" rel="noopener">
-          <div class="card-icon">🧪</div>
-          <span class="card-lang">Local · WDIO</span>
-          <h2>Run &amp; Generate Report</h2>
-          <p>Execute mobile specs locally, then <code>npm run allure:generate</code> and <code>npm run allure:open</code>. Requires Java 17+ and an emulator or device.</p>
-          <span class="card-arrow">↗ README · Allure</span>
-        </a>
-
-        <a class="card" href="https://github.com/lflucasferreira/testflow-appium#test-coverage" target="_blank" rel="noopener">
-          <div class="card-icon">📱</div>
-          <span class="card-lang">Page Objects</span>
-          <h2>Test Coverage</h2>
-          <p>Smoke, auth, dashboard, team, gestures, device, contexts, locators, visual baselines — aligned with <code>testflow-playwright</code> and <code>testflow-cypress</code>.</p>
-          <span class="card-arrow">↗ README · suites</span>
-        </a>
-
-        <a class="card" href="https://github.com/lflucasferreira/testflow-appium/actions" target="_blank" rel="noopener">
-          <div class="card-icon">⚙️</div>
-          <span class="card-lang">GitHub Actions</span>
-          <h2>CI Workflows</h2>
-          <p><strong>appium.yml</strong> — API smoke + Android emulator smoke gate. <strong>pages.yml</strong> — full WDIO suite + Allure deploy to GitHub Pages.</p>
-          <span class="card-arrow">↗ github.com/…/actions</span>
-        </a>
-
-        <a class="card" href="https://webdriver.io/docs/allure-reporter/" target="_blank" rel="noopener">
-          <div class="card-icon">📎</div>
-          <span class="card-lang">WebdriverIO 9</span>
-          <h2>Allure + Appium Stack</h2>
-          <p>Appium 2, WebdriverIO, TypeScript, Mocha, <code>@wdio/allure-reporter</code>, and <code>data-testid</code> selectors — same strategy as the web suites.</p>
-          <span class="card-arrow">↗ WDIO Allure docs</span>
+          <p>Full-suite mobile web results from CI — screenshots, environment metadata, updated on every push to main.</p>
+          <span class="card-arrow">↗ GitHub Pages · report</span>
         </a>
       </div>
     </main>
@@ -287,9 +89,8 @@
         <a href="https://github.com/lflucasferreira/testflow-appium" target="_blank" rel="noopener">lflucasferreira/testflow-appium</a>
         &nbsp;·&nbsp;
         Target app: <a href="https://github.com/qaschoolbr/testflow" target="_blank" rel="noopener">qaschool/testflow</a>
-        &nbsp;·&nbsp;
-        <a href="https://appium.io/" target="_blank" rel="noopener">Appium</a>
       </p>
     </footer>
+    <script src="js/theme-toggle.js"></script>
   </body>
 </html>

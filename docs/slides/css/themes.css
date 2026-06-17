@@ -1,0 +1,58 @@
+/**
+ * Appium docs — light & dark semantic tokens
+ * Set via data-theme on <html> (js/theme.js)
+ */
+
+:root {
+  /* Code blocks stay dark in every theme */
+  --ap-code-bg: #0f1419;
+  --ap-code-text: #c9d1d9;
+  --ap-code-border: #30363d;
+  --ap-code-surface: #161b22;
+}
+
+:root,
+[data-theme='dark'] {
+  color-scheme: dark;
+  --ap-teal: #00c9b7;
+  --ap-teal-dark: #00a896;
+  --ap-purple: #662d91;
+  --ap-teal-glow: rgba(0, 201, 183, 0.35);
+  --ap-bg: #0f1419;
+  --ap-surface: #1a2332;
+  --ap-surface-2: #111820;
+  --ap-border: #2d3a4d;
+  --ap-text: #e8edf4;
+  --ap-muted: #8b9cb0;
+  --ap-shadow: rgba(0, 0, 0, 0.35);
+  --ap-gradient-a: rgba(0, 201, 183, 0.12);
+  --ap-gradient-b: rgba(102, 45, 145, 0.08);
+  --ap-table-hover: rgba(0, 201, 183, 0.06);
+  --ap-callout-bg: rgba(0, 201, 183, 0.08);
+  --ap-h1-gradient-start: #ffffff;
+}
+
+[data-theme='light'] {
+  color-scheme: light;
+  --ap-teal: #00a896;
+  --ap-teal-dark: #008f7a;
+  --ap-purple: #5a2580;
+  --ap-teal-glow: rgba(0, 168, 150, 0.22);
+  --ap-bg: #ffffff;
+  --ap-surface: #f6f8fa;
+  --ap-surface-2: #eaeef2;
+  --ap-border: #d0d7de;
+  --ap-text: #1f2328;
+  --ap-muted: #656d76;
+  --ap-shadow: rgba(31, 35, 40, 0.12);
+  --ap-gradient-a: rgba(0, 168, 150, 0.1);
+  --ap-gradient-b: rgba(102, 45, 145, 0.06);
+  --ap-table-hover: rgba(0, 168, 150, 0.08);
+  --ap-callout-bg: rgba(0, 168, 150, 0.1);
+  --ap-h1-gradient-start: #1f2328;
+}
+
+[data-theme='light'] img.tool-icon[src*='github.svg'],
+[data-theme='light'] .card-logo[src*='github.svg'] {
+  filter: brightness(0);
+}

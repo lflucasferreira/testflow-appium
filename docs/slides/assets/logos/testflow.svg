@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-label="TestFlow">
+  <rect x="2" y="4" width="20" height="16" rx="3" fill="#00c9b7"/>
+  <path fill="#0f1419" d="M7 9h10v1.5H7V9Zm0 3.5h7v1.5H7v-1.5Z"/>
+  <circle cx="17" cy="15" r="2" fill="#662d91"/>
+</svg>

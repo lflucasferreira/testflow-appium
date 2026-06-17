@@ -4,6 +4,9 @@
   "private": true,
   "description": "Appium mobile web automation for TestFlow — mirror of Cypress, Playwright and PyTest suites",
   "scripts": {
+    "slides": "npx serve . -p 3336",
+    "slides:open": "npx serve . -p 3336 & sleep 1 && open http://localhost:3336/docs/",
+    "slides:pdf": "node scripts/export-slides-pdf.mjs",
     "appium:doctor": "npx appium driver doctor uiautomator2 && npx appium driver doctor xcuitest",
     "appium:drivers": "bash scripts/ensure-appium-drivers.sh",
     "test": "wdio run wdio.conf.ts",
@@ -60,6 +63,10 @@
     "expect-webdriverio": "^5.1.1",
     "mocha": "^11.7.6",
     "ts-node": "^10.9.2",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "decktape": "^3.16.1",
+    "highlight.js": "^11.11.1",
+    "reveal.js": "^5.1.0",
+    "serve": "^14.2.4"
   }
 }
