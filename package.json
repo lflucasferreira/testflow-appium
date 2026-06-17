@@ -5,7 +5,7 @@
   "description": "Appium mobile web automation for TestFlow — mirror of Cypress, Playwright and PyTest suites",
   "scripts": {
     "appium:doctor": "npx appium driver doctor uiautomator2 && npx appium driver doctor xcuitest",
-    "appium:drivers": "npx appium driver install uiautomator2 && npx appium driver install xcuitest",
+    "appium:drivers": "bash scripts/ensure-appium-drivers.sh",
     "test": "wdio run wdio.conf.ts",
     "test:android": "PLATFORM=android wdio run wdio.conf.ts",
     "test:ios": "PLATFORM=ios wdio run wdio.ios.conf.ts",
