@@ -138,6 +138,23 @@ On every push to `main`, `.github/workflows/pages.yml` runs the Android smoke su
 
 CI also uploads `allure-results/` and `allure-report/` as workflow artifacts in `appium.yml`.
 
+#### One-time setup (required)
+
+`deploy-pages` fails with **404** until Pages is enabled on the repository:
+
+1. Open [Settings → Pages](https://github.com/lflucasferreira/testflow-appium/settings/pages)
+2. Under **Build and deployment → Source**, select **GitHub Actions** (not “Deploy from a branch”)
+3. Re-run the **Deploy Allure Report** workflow (`workflow_dispatch` or push to `main`)
+
+The workflow already declares the required permissions:
+
+```yaml
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+```
+
 ## Project structure
 
 ```
