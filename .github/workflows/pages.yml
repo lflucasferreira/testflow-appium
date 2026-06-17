@@ -16,9 +16,9 @@ concurrency:
 
 jobs:
   report:
-    name: Run Android smoke & publish Allure
+    name: Run Android full suite & publish Allure
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 180
     services:
       testflow:
         image: qaschool/testflow:latest
@@ -60,7 +60,7 @@ jobs:
           target: google_apis
           arch: x86_64
           profile: pixel_7
-          script: bash scripts/ci-android-smoke.sh
+          script: bash scripts/ci-android-suite.sh
         continue-on-error: true
 
       - name: Build GitHub Pages site

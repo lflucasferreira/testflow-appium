@@ -131,7 +131,7 @@ npm run report
 
 ### GitHub Pages
 
-On every push to `main`, `.github/workflows/pages.yml` runs the Android smoke suite, generates Allure HTML, and publishes to GitHub Pages:
+On every push to `main`, `.github/workflows/pages.yml` runs the **full Android WDIO suite** (`npm test`), generates Allure HTML, and publishes to GitHub Pages:
 
 - Hub: `https://lflucasferreira.github.io/testflow-appium/`
 - Report: `https://lflucasferreira.github.io/testflow-appium/report/`
@@ -181,7 +181,8 @@ GitHub Actions workflow (`.github/workflows/appium.yml`):
 | Job | What it runs |
 |---|---|
 | `api` | REST smoke against TestFlow Docker service |
-| `android-smoke` | Smoke suite on Android emulator (API 34) |
+| `android-smoke` | Smoke suite on Android emulator (API 34) — PR gate |
+| `pages.yml` | Full Android suite + Allure report on GitHub Pages |
 
 iOS jobs require macOS runners — run locally with `npm run test:ios`.
 

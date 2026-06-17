@@ -30,6 +30,8 @@
     "test:grep:smoke": "wdio run wdio.conf.ts --mochaOpts.grep @smoke",
     "test:grep:regression": "wdio run wdio.conf.ts --mochaOpts.grep @regression",
     "test:grep:appium": "wdio run wdio.conf.ts --mochaOpts.grep @appium",
+    "test:ci:android": "bash scripts/ci-android-suite.sh",
+    "test:ci:android:smoke": "bash scripts/ci-android-smoke.sh",
     "check:testflow": "bash scripts/check-testflow.sh",
     "allure:generate": "bash scripts/generate-allure-report.sh",
     "allure:open": "npx allure open allure-report",
